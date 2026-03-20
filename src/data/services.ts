@@ -1,0 +1,111 @@
+export interface Service {
+  id: number
+  slug: string
+  title: string
+  icon: string
+  color: string
+  shortDescription: string
+  problem: string
+  solution: string
+  frameworks: string[]
+  deliverables: string[]
+}
+
+export const services: Service[] = [
+  {
+    id: 1,
+    slug: 'esg-reporting',
+    title: 'ESG Reporting & Compliance',
+    icon: 'FileText',
+    color: 'green',
+    shortDescription: 'Navigate the complex landscape of global ESG reporting frameworks with confidence.',
+    problem: 'Organisations face mounting pressure from regulators, investors, and stakeholders to disclose ESG performance. With frameworks like CSRD, ISSB, TCFD, GRI, and SFDR all requiring different data and disclosures, compliance is overwhelming for most sustainability teams.',
+    solution: 'We provide end-to-end ESG reporting support — from materiality assessment and data collection architecture through to audit-ready disclosures. Our team ensures your reporting meets the latest regulatory requirements while telling a compelling sustainability story to your stakeholders.',
+    frameworks: ['CSRD', 'ISSB S1/S2', 'TCFD', 'GRI Standards', 'SFDR', 'EU Taxonomy', 'CDP'],
+    deliverables: ['ESG Report (aligned to chosen framework)', 'Data collection templates', 'Materiality matrix', 'Regulatory gap analysis', 'Disclosure narrative'],
+  },
+  {
+    id: 2,
+    slug: 'climate-risk',
+    title: 'Climate Risk & Scenario Analysis',
+    icon: 'TrendingUp',
+    color: 'blue',
+    shortDescription: 'Quantify physical and transition climate risks using globally recognised scenarios.',
+    problem: 'Climate change presents material financial risks — from physical damage to assets and disrupted supply chains to stranded assets and transition costs as policy tightens. Investors and regulators now require rigorous, forward-looking climate risk assessment.',
+    solution: 'We conduct comprehensive climate risk assessments covering both physical risks (heat stress, flooding, drought) and transition risks (carbon pricing, regulatory change, technology disruption). Using IPCC SSP scenarios and NGFS pathways, we translate climate data into actionable financial risk metrics.',
+    frameworks: ['TCFD', 'NGFS Scenarios', 'SSP 1.5°C / 2°C / 4°C', 'IPCC AR6', 'TNFD'],
+    deliverables: ['Physical risk assessment report', 'Transition risk analysis', 'Scenario narratives (3 scenarios)', 'Financial materiality quantification', 'Risk management recommendations'],
+  },
+  {
+    id: 3,
+    slug: 'ghg-accounting',
+    title: 'GHG Emissions Accounting',
+    icon: 'BarChart3',
+    color: 'orange',
+    shortDescription: 'Full lifecycle carbon footprint measurement across Scope 1, 2, and 3 emissions.',
+    problem: 'Greenhouse gas accounting is the foundation of any credible net zero strategy, yet many organisations struggle with data quality, boundary-setting, and Scope 3 calculation — which often represents over 70% of total emissions.',
+    solution: 'We deliver robust, audit-ready GHG inventories following the GHG Protocol Corporate Standard. Our team manages the full lifecycle — from boundary setting and data collection to calculation, verification support, and year-on-year tracking. We specialise in complex Scope 3 category estimation using spend-based, activity-based, and supplier-specific methods.',
+    frameworks: ['GHG Protocol Corporate Standard', 'ISO 14064', 'Science Based Targets (SBTi)', 'PCAF', 'Defra Emission Factors'],
+    deliverables: ['GHG inventory (Scope 1, 2, 3)', 'Emissions data dashboard', 'Calculation methodology note', 'Base year establishment', 'Verification-ready data package'],
+  },
+  {
+    id: 4,
+    slug: 'net-zero-strategy',
+    title: 'Net Zero Strategy & Decarbonisation',
+    icon: 'Target',
+    color: 'green',
+    shortDescription: 'Science-based net zero roadmaps aligned to 1.5°C pathways.',
+    problem: 'Setting a net zero target without a credible roadmap is greenwashing — investors, customers, and regulators increasingly demand detailed transition plans with interim milestones, capital allocation, and accountability mechanisms.',
+    solution: 'We develop science-based net zero strategies that pass scrutiny. Starting from your GHG baseline, we identify decarbonisation levers, model abatement cost curves, and build phased transition roadmaps with measurable milestones. We align your target-setting to SBTi Corporate Net Zero Standard and align with sector-specific 1.5°C pathways.',
+    frameworks: ['SBTi Net Zero Standard', 'Race to Zero', 'SME Climate Hub', 'IEA Net Zero 2050', 'UN Global Compact'],
+    deliverables: ['Net zero roadmap (2030/2040/2050 milestones)', 'Abatement cost curve analysis', 'Interim target setting', 'Transition plan narrative', 'Board presentation deck'],
+  },
+  {
+    id: 5,
+    slug: 'sustainable-finance',
+    title: 'Sustainable Finance Advisory',
+    icon: 'DollarSign',
+    color: 'blue',
+    shortDescription: 'ESG integration into investment analysis, green bond frameworks, and SFDR compliance.',
+    problem: 'Financial institutions face pressure to integrate ESG factors into investment decisions, comply with SFDR Article 8/9 requirements, issue credible green bonds, and manage ESG-related legal and reputational risks across their portfolios.',
+    solution: 'We support asset managers, banks, and institutional investors with ESG integration frameworks, SFDR classification and PAI reporting, green and sustainability-linked bond frameworks, and portfolio-level climate risk assessment. Our sustainable finance advisory bridges the gap between complex regulation and practical implementation.',
+    frameworks: ['SFDR', 'EU Taxonomy', 'Green Bond Principles (ICMA)', 'TCFD', 'PRI Principles', 'PCAF'],
+    deliverables: ['SFDR Article 8/9 classification analysis', 'PAI statement template', 'Green bond/SLB framework', 'ESG integration policy', 'Portfolio climate risk report'],
+  },
+  {
+    id: 6,
+    slug: 'climate-data-dashboards',
+    title: 'Climate Data & Dashboard Solutions',
+    icon: 'LayoutDashboard',
+    color: 'purple',
+    shortDescription: 'Custom ESG and climate data dashboards powered by automation and AI.',
+    problem: 'ESG teams drown in fragmented data from multiple sources — emissions calculators, energy monitoring systems, supplier questionnaires, and regulatory templates — with no unified view, making reporting inefficient and error-prone.',
+    solution: 'We design and build custom climate data infrastructure and dashboards using Power BI, Excel, Python, and automation tools. Our solutions consolidate your ESG data into a single source of truth, automate data flows, and deliver real-time reporting dashboards that serve multiple stakeholders from the sustainability team to the board.',
+    frameworks: ['Power BI', 'Excel / VBA', 'Python (Pandas)', 'Zapier / Make', 'REST APIs', 'Google Looker Studio'],
+    deliverables: ['Custom ESG dashboard', 'Automated data pipeline', 'KPI tracking system', 'Reporting templates', 'User training documentation'],
+  },
+  {
+    id: 7,
+    slug: 'scope3-supply-chain',
+    title: 'Supply Chain (Scope 3) ESG Analysis',
+    icon: 'Network',
+    color: 'teal',
+    shortDescription: 'Map and reduce Scope 3 emissions across your full supply chain.',
+    problem: 'Scope 3 emissions — from purchased goods, business travel, logistics, and product use — typically account for 70-90% of a company\'s total carbon footprint, yet remain the hardest to measure and reduce due to data gaps and supplier engagement challenges.',
+    solution: 'We provide comprehensive Scope 3 assessments covering all 15 categories of the GHG Protocol. We combine spend-based screening with supplier-level data collection, prioritise high-impact categories, and develop supplier engagement programmes. Our approach transforms Scope 3 from a compliance headache into a competitive advantage.',
+    frameworks: ['GHG Protocol Scope 3 Standard', 'CDP Supply Chain', 'EcoVadis', 'Ecoinvent LCA Database', 'EEIO Models'],
+    deliverables: ['Scope 3 inventory (all 15 categories)', 'Supplier questionnaire template', 'Hotspot analysis', 'Supplier engagement strategy', 'Reduction roadmap'],
+  },
+  {
+    id: 8,
+    slug: 'double-materiality',
+    title: 'Double Materiality Assessment',
+    icon: 'Layers',
+    color: 'pink',
+    shortDescription: 'CSRD-compliant double materiality assessments identifying your most significant ESG impacts and risks.',
+    problem: 'Under CSRD, companies must conduct a double materiality assessment — evaluating both how ESG issues affect the business (financial materiality) and how the business impacts people and environment (impact materiality). This is a complex stakeholder-intensive process many organisations have never undertaken.',
+    solution: 'We facilitate the full double materiality assessment process required under CSRD, from stakeholder identification and engagement through to IRO (Impact, Risk and Opportunity) mapping, materiality scoring, and validation. Our structured methodology ensures your assessment meets ESRS requirements and withstands auditor scrutiny.',
+    frameworks: ['CSRD / ESRS', 'GRI 3 Material Topics', 'EFRAG DMA Guidance', 'AA1000', 'SASB Standards'],
+    deliverables: ['Stakeholder engagement plan', 'IRO longlist and scoring matrix', 'Materiality matrix', 'ESRS topic selection analysis', 'Board-ready presentation'],
+  },
+]
