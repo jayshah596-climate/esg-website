@@ -1,4 +1,4 @@
-import { ShoppingCart, Check, Star, Monitor, MessageCircle } from 'lucide-react'
+import { ShoppingCart, Check, Star, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 import { Badge } from '@/components/ui/Badge'
 import type { Product } from '@/data/products'
@@ -8,13 +8,14 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const buyLink = `/contact?product=${encodeURIComponent(product.title)}&action=buy`
   const demoLink = `/contact?product=${encodeURIComponent(product.title)}&action=demo`
 
   const badgeVariant =
     product.badge === 'Most Popular'
       ? 'green'
-      : product.badge === 'Best Value' || product.badge?.startsWith('Starter')
+      : product.badge === 'Best Value' ||
+        product.badge?.startsWith('Starter') ||
+        product.badge === 'Popular'
       ? 'blue'
       : 'orange'
 
@@ -26,13 +27,19 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
       )}
 
-      {/* Screenshot placeholder */}
-      <div className="w-full h-44 bg-dark border-b border-white/5 flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/5" />
-        <div className="relative text-center">
-          <Monitor className="w-12 h-12 text-gray-600 mx-auto mb-2" />
-          <p className="text-gray-500 text-sm font-medium">{product.category}</p>
-          <p className="text-gray-600 text-xs">{product.format}</p>
+      {/* Product Image */}
+      <div className="w-full h-44 bg-dark border-b border-white/5 relative overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-full object-cover opacity-60"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent" />
+        <div className="absolute bottom-3 left-3">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white/10 text-white/80 backdrop-blur-sm border border-white/10">
+            Digital Tool &middot; {product.format}
+          </span>
         </div>
       </div>
 
@@ -48,7 +55,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {[1, 2, 3, 4, 5].map((s) => (
             <Star key={s} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
           ))}
-          <span className="text-gray-500 text-xs ml-1">5.0 · Professional Grade</span>
+          <span className="text-gray-500 text-xs ml-1">5.0 &middot; Professional Grade</span>
         </div>
 
         {/* Description */}
@@ -80,13 +87,13 @@ export function ProductCard({ product }: ProductCardProps) {
               Get Instant Access
             </a>
           ) : (
-            <Link
-              href={buyLink}
-              className="flex-1 flex items-center justify-center gap-2 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 hover:scale-105 text-sm"
+            <button
+              disabled
+              className="flex-1 flex items-center justify-center gap-2 py-3 bg-white/5 text-gray-500 font-semibold rounded-lg cursor-not-allowed text-sm border border-white/10"
             >
               <ShoppingCart className="w-4 h-4" />
-              Buy Now
-            </Link>
+              Coming Soon
+            </button>
           )}
           <Link
             href={demoLink}
