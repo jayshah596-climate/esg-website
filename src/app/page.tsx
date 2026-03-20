@@ -8,6 +8,7 @@ import { TestimonialsSection } from '@/components/sections/home/TestimonialsSect
 import { TeamSnippet } from '@/components/sections/home/TeamSnippet'
 import { CTABanner } from '@/components/sections/home/CTABanner'
 import { LeadMagnetBanner } from '@/components/widgets/LeadMagnetBanner'
+import { LatestInsights } from '@/components/sections/home/LatestInsights'
 
 export const metadata: Metadata = {
   title: 'BTW AI Services | Premium ESG & Climate Consulting',
@@ -25,6 +26,7 @@ export default function HomePage() {
       <ClientsSection />
       <TestimonialsSection />
       <TeamSnippet />
+      <LatestInsights />
       <LeadMagnetBanner />
       <CTABanner />
     </>

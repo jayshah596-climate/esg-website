@@ -149,8 +149,8 @@ export const products: Product[] = [
     badge: undefined,
     category: 'Calculator',
     format: 'Excel',
-    stripeLink: undefined,
-    limitedPricing: false,
+    stripeLink: 'https://buy.stripe.com/dRmcN57vL6wBdvw199gYU05',
+    limitedPricing: true,
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=300&fit=crop&auto=format&q=80',
   },
   {

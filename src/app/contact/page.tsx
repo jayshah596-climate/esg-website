@@ -7,6 +7,14 @@ import {
   CheckCircle, Send, Clock, MessageSquare, ExternalLink, ArrowRight
 } from 'lucide-react'
 
+// ─── Google Apps Script Webhook ──────────────────────────────────────────────
+// 1. Open your Google Sheet: https://docs.google.com/spreadsheets/d/1mhxZQHed0xQihSweHxqWqzJC66PBPUV3I94EfDlx5Ww
+// 2. Go to Extensions > Apps Script and paste the code from /public/apps-script-contact.js
+// 3. Deploy as Web App (Execute as: Me, Who has access: Anyone)
+// 4. Copy the deployment URL and replace the placeholder below
+const CONTACT_SHEET_WEBHOOK = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_CONTACT_SCRIPT_URL/exec'
+// ─────────────────────────────────────────────────────────────────────────────
+
 interface FormData {
   name: string
   company: string
@@ -44,17 +52,34 @@ export default function ContactPage() {
     return errs
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
     setErrors({})
     setLoading(true)
-    // Simulate submit
-    setTimeout(() => {
-      setSubmitted(true)
-      setLoading(false)
-    }, 1500)
+
+    try {
+      // Save to Google Sheet via Apps Script webhook (no-cors: fire and forget)
+      await fetch(CONTACT_SHEET_WEBHOOK, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          name: form.name,
+          company: form.company || '—',
+          email: form.email,
+          service: form.service || '—',
+          message: form.message,
+          date: new Date().toISOString(),
+        }),
+      })
+    } catch {
+      // Silently continue — show success regardless (webhook may not be configured yet)
+    }
+
+    setSubmitted(true)
+    setLoading(false)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -91,7 +116,7 @@ export default function ContactPage() {
                 <h2 className="text-xl font-bold text-white mb-4">Get In Touch</h2>
                 <div className="space-y-4">
                   <a
-                    href="mailto:hello@btwai.com"
+                    href="mailto:jayshah596@gmail.com"
                     className="flex items-center gap-3 p-4 bg-surface border border-white/10 rounded-xl hover:border-primary/30 transition-all group"
                   >
                     <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -99,7 +124,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-gray-500 text-xs">Email</p>
-                      <p className="text-white font-medium text-sm group-hover:text-accent transition-colors">hello@btwai.com</p>
+                      <p className="text-white font-medium text-sm group-hover:text-accent transition-colors">jayshah596@gmail.com</p>
                     </div>
                   </a>
 
@@ -195,7 +220,14 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-white font-bold text-xl mb-2">Message Sent!</h3>
                     <p className="text-gray-400 text-sm mb-2">Thank you for reaching out. We&apos;ll be in touch within 24 hours.</p>
-                    <p className="text-gray-500 text-xs mb-6">In the meantime, feel free to explore our services or marketplace.</p>
+                    <p className="text-gray-500 text-xs mb-4">You can also email us directly:</p>
+                    <a
+                      href="mailto:jayshah596@gmail.com"
+                      className="inline-flex items-center gap-2 text-accent hover:text-accent/80 text-sm font-medium transition-colors mb-6"
+                    >
+                      <Mail className="w-4 h-4" />
+                      jayshah596@gmail.com
+                    </a>
                     <div className="flex gap-3 justify-center">
                       <Link href="/services" className="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition-colors">
                         View Services

@@ -55,7 +55,7 @@ export const team: TeamMember[] = [
       'Process Optimisation',
       'Digital Product Development',
     ],
-    linkedIn: 'https://www.linkedin.com/in/jay-shah-climate/',
+    linkedIn: 'https://www.linkedin.com/in/zeel-shah-ab338052/',
     image: undefined,
   },
 ]

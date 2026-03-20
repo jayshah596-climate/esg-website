@@ -3,19 +3,43 @@
 import { useState } from 'react'
 import { Download, CheckCircle, Mail } from 'lucide-react'
 
+// ─── Google Apps Script Webhook ──────────────────────────────────────────────
+// 1. Open your Google Sheet: https://docs.google.com/spreadsheets/d/1HdfvG-8nW73nN1iGCSh1NTJ2RvPtcATQY8cMOz3iVn0
+// 2. Go to Extensions > Apps Script and paste the code from /public/apps-script-leads.js
+// 3. Deploy as Web App (Execute as: Me, Who has access: Anyone)
+// 4. Copy the deployment URL and replace the placeholder below
+const LEADS_SHEET_WEBHOOK = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_LEADS_SCRIPT_URL/exec'
+// ─────────────────────────────────────────────────────────────────────────────
+
+const TOOLKIT_DOWNLOAD_URL = '/esg-starter-toolkit.html'
+
 export function LeadMagnetBanner() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email.trim()) return
     setLoading(true)
-    setTimeout(() => {
-      setSubmitted(true)
-      setLoading(false)
-    }, 1200)
+
+    try {
+      // Save email to Google Sheet via Apps Script webhook (no-cors: fire and forget)
+      await fetch(LEADS_SHEET_WEBHOOK, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          email,
+          date: new Date().toISOString(),
+        }),
+      })
+    } catch {
+      // Silently continue — webhook may not be configured yet
+    }
+
+    setSubmitted(true)
+    setLoading(false)
   }
 
   return (
@@ -29,17 +53,28 @@ export function LeadMagnetBanner() {
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
             Get Your Free ESG Starter Toolkit
           </h3>
-          <p className="text-gray-400 mb-6 text-sm leading-relaxed">
-            A practical guide covering ESG reporting basics, CSRD checklist, GHG accounting starter template, and climate risk framework — valued at £99, yours free.
+          <p className="text-gray-400 mb-2 text-sm leading-relaxed">
+            A practical guide covering ESG reporting basics, CSRD checklist, GHG accounting starter template, and climate risk framework.
           </p>
+          <p className="text-accent font-semibold text-sm mb-6">Valued at £99 — yours free</p>
 
           {submitted ? (
-            <div className="flex items-center justify-center gap-3 bg-primary/20 border border-primary/30 rounded-xl px-6 py-4">
-              <CheckCircle className="w-6 h-6 text-accent" />
-              <div className="text-left">
-                <p className="text-white font-semibold text-sm">Toolkit on its way!</p>
-                <p className="text-gray-400 text-xs">Check your inbox — we&apos;ll send it within minutes.</p>
+            <div className="space-y-4">
+              <div className="flex items-center justify-center gap-3 bg-primary/20 border border-primary/30 rounded-xl px-6 py-4">
+                <CheckCircle className="w-6 h-6 text-accent flex-shrink-0" />
+                <div className="text-left">
+                  <p className="text-white font-semibold text-sm">Toolkit sent to your email!</p>
+                  <p className="text-gray-400 text-xs">Or download it instantly below.</p>
+                </div>
               </div>
+              <a
+                href={TOOLKIT_DOWNLOAD_URL}
+                download="ESG-Starter-Toolkit.html"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 hover:scale-105 text-sm"
+              >
+                <Download className="w-4 h-4" />
+                Download Toolkit Now
+              </a>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">

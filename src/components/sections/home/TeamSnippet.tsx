@@ -19,7 +19,7 @@ const teamPreview = [
     subRole: 'Co-Founder',
     bio: 'Specialist in AI tools, workflow automation, ESG data infrastructure, and digital product development. Builds the tech backbone of BTW AI.',
     tags: ['AI Tools', 'Power BI', 'Automation', 'SaaS'],
-    linkedin: 'https://www.linkedin.com/in/jay-shah-climate/',
+    linkedin: 'https://www.linkedin.com/in/zeel-shah-ab338052/',
     initial: 'Z',
   },
 ]

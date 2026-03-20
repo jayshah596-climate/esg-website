@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free ESG Starter Toolkit — BTW AI Services</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; background: #f8f9fc; }
+    .cover { background: linear-gradient(135deg, #1a3c5e 0%, #0d6efd 60%, #00c897 100%); color: white; padding: 60px 40px; text-align: center; }
+    .cover .badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 50px; padding: 6px 20px; font-size: 13px; font-weight: 600; letter-spacing: 1px; margin-bottom: 24px; }
+    .cover h1 { font-size: 42px; font-weight: 800; margin-bottom: 12px; }
+    .cover p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto 20px; }
+    .cover .value { font-size: 14px; background: rgba(255,255,255,0.15); border-radius: 8px; padding: 8px 20px; display: inline-block; }
+    .toc { background: white; padding: 40px; max-width: 900px; margin: 30px auto; border-radius: 16px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .toc h2 { color: #1a3c5e; font-size: 22px; margin-bottom: 20px; border-bottom: 2px solid #0d6efd; padding-bottom: 10px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { padding: 8px 0; font-size: 15px; color: #333; }
+    .toc li strong { color: #0d6efd; }
+    .section { background: white; padding: 40px; max-width: 900px; margin: 20px auto; border-radius: 16px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); page-break-inside: avoid; }
+    .section-num { background: linear-gradient(135deg, #0d6efd, #00c897); color: white; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; margin-bottom: 12px; }
+    .section h2 { font-size: 26px; color: #1a3c5e; margin-bottom: 8px; }
+    .section .subtitle { color: #666; font-size: 14px; margin-bottom: 24px; }
+    .section p { color: #444; line-height: 1.7; margin-bottom: 14px; font-size: 15px; }
+    .section ul, .section ol { padding-left: 22px; margin-bottom: 16px; }
+    .section li { color: #444; line-height: 1.7; margin-bottom: 6px; font-size: 15px; }
+    .highlight { background: #f0f7ff; border-left: 4px solid #0d6efd; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 20px 0; }
+    .highlight strong { color: #0d6efd; }
+    h3 { color: #1a3c5e; font-size: 18px; margin: 20px 0 10px; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+    th { background: #1a3c5e; color: white; padding: 12px 14px; text-align: left; }
+    td { padding: 10px 14px; border-bottom: 1px solid #e8edf2; }
+    tr:nth-child(even) td { background: #f8f9fc; }
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    .checklist li::before { content: "☐"; font-size: 18px; color: #0d6efd; flex-shrink: 0; }
+    .checklist li.done::before { content: "☑"; color: #00c897; }
+    .tag { display: inline-block; background: #e8f4ff; color: #0d6efd; border-radius: 4px; padding: 3px 10px; font-size: 12px; font-weight: 600; margin: 2px; }
+    .footer-banner { background: linear-gradient(135deg, #1a3c5e, #0d6efd); color: white; text-align: center; padding: 40px; max-width: 900px; margin: 20px auto 40px; border-radius: 16px; }
+    .footer-banner h3 { font-size: 22px; margin-bottom: 8px; }
+    .footer-banner p { opacity: 0.9; font-size: 14px; margin-bottom: 16px; }
+    .footer-banner a { display: inline-block; background: #00c897; color: white; text-decoration: none; padding: 12px 30px; border-radius: 8px; font-weight: 700; font-size: 15px; }
+    @media print { body { background: white; } .section, .toc, .footer-banner { box-shadow: none; margin: 0; border-radius: 0; } }
+  </style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="badge">FREE RESOURCE — BTW AI Services</div>
+  <h1>ESG Starter Toolkit</h1>
+  <p>A practical guide to ESG reporting, CSRD compliance, GHG accounting, and climate risk management</p>
+  <div class="value">Valued at £99 — yours free</div>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><strong>Section 1:</strong> ESG Basics — What It Is and Why It Matters</li>
+    <li><strong>Section 2:</strong> CSRD Checklist — Are You Ready?</li>
+    <li><strong>Section 3:</strong> GHG Calculation Starter Template</li>
+    <li><strong>Section 4:</strong> Climate Risk Framework Overview</li>
+  </ol>
+</div>
+
+<!-- Section 1: ESG Basics -->
+<div class="section">
+  <div class="section-num">1</div>
+  <h2>ESG Basics</h2>
+  <p class="subtitle">What ESG is, why it matters, and what your organisation needs to know</p>
+
+  <p><strong>ESG</strong> stands for <strong>Environmental, Social, and Governance</strong>. It is a framework used by investors, regulators, and organisations to assess sustainability performance and non-financial risks.</p>
+
+  <h3>The Three Pillars</h3>
+  <table>
+    <tr><th>Pillar</th><th>What It Covers</th><th>Key Examples</th></tr>
+    <tr><td><strong>Environmental (E)</strong></td><td>Climate change, emissions, resource use, biodiversity</td><td>GHG emissions, energy use, water consumption, waste</td></tr>
+    <tr><td><strong>Social (S)</strong></td><td>People, communities, labour, human rights</td><td>Diversity, employee wellbeing, supply chain labour</td></tr>
+    <tr><td><strong>Governance (G)</strong></td><td>Leadership, accountability, ethics, transparency</td><td>Board composition, anti-corruption, audit quality</td></tr>
+  </table>
+
+  <h3>Why ESG Matters Now</h3>
+  <ul>
+    <li><strong>Regulatory pressure:</strong> CSRD (EU), TCFD (UK), SEC climate rules (US), ISSB IFRS S1/S2 (global) are all creating mandatory reporting obligations.</li>
+    <li><strong>Investor demand:</strong> Over $35 trillion of assets under management now apply ESG screens.</li>
+    <li><strong>Supply chain requirements:</strong> Large corporates are asking suppliers to disclose ESG data.</li>
+    <li><strong>Cost reduction:</strong> ESG efficiency measures (energy, waste, water) directly reduce operating costs.</li>
+    <li><strong>Talent attraction:</strong> 73% of professionals consider ESG credentials when choosing employers.</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>Key Insight:</strong> ESG is no longer optional. The question is not whether to engage with ESG — it is how to do it effectively and efficiently.
+  </div>
+
+  <h3>Key ESG Frameworks to Know</h3>
+  <ul>
+    <li><span class="tag">CSRD</span> Corporate Sustainability Reporting Directive (EU) — mandatory for large EU companies</li>
+    <li><span class="tag">TCFD</span> Task Force on Climate-related Financial Disclosures — climate risk reporting</li>
+    <li><span class="tag">ISSB</span> International Sustainability Standards Board — global baseline (IFRS S1 &amp; S2)</li>
+    <li><span class="tag">GRI</span> Global Reporting Initiative — widely used voluntary standard</li>
+    <li><span class="tag">GHG Protocol</span> The standard for measuring greenhouse gas emissions</li>
+    <li><span class="tag">SBTi</span> Science Based Targets initiative — net zero target-setting</li>
+  </ul>
+</div>
+
+<!-- Section 2: CSRD Checklist -->
+<div class="section">
+  <div class="section-num">2</div>
+  <h2>CSRD Checklist</h2>
+  <p class="subtitle">A practical readiness checklist for the EU Corporate Sustainability Reporting Directive</p>
+
+  <div class="highlight">
+    <strong>Who is in scope?</strong> CSRD applies to large EU companies (&gt;500 employees from 2024), large non-listed EU companies (&gt;250 employees from 2025), and listed SMEs (from 2026). Non-EU companies with significant EU revenue will also be included.
+  </div>
+
+  <h3>Phase 1: Governance &amp; Scope</h3>
+  <ul class="checklist">
+    <li>Determine whether your organisation is in scope for CSRD and when</li>
+    <li>Identify the consolidation scope for reporting (group vs. subsidiary level)</li>
+    <li>Assign board-level oversight responsibility for sustainability</li>
+    <li>Establish a cross-functional ESG working group</li>
+    <li>Review existing sustainability reports and identify gaps vs. ESRS requirements</li>
+  </ul>
+
+  <h3>Phase 2: Double Materiality Assessment</h3>
+  <ul class="checklist">
+    <li>Understand the difference between impact materiality and financial materiality</li>
+    <li>Map your value chain (upstream suppliers, own operations, downstream)</li>
+    <li>Identify material impacts, risks, and opportunities (IROs) across all ESRS topics</li>
+    <li>Conduct stakeholder engagement to validate material topics</li>
+    <li>Score and prioritise IROs using a defined threshold</li>
+    <li>Document the DMA process for audit purposes</li>
+  </ul>
+
+  <h3>Phase 3: Data Collection &amp; Systems</h3>
+  <ul class="checklist">
+    <li>Identify data gaps for each material ESRS topic</li>
+    <li>Design data collection templates for each business unit</li>
+    <li>Establish data quality controls and audit trails</li>
+    <li>Set up GHG emissions calculation (Scope 1, 2, and material Scope 3 categories)</li>
+    <li>Collect energy, water, waste, and biodiversity data</li>
+    <li>Review HR and social data collection processes</li>
+  </ul>
+
+  <h3>Phase 4: Disclosure &amp; Assurance</h3>
+  <ul class="checklist">
+    <li>Draft disclosures against each applicable ESRS standard</li>
+    <li>Prepare the ESRS 2 General Disclosures (mandatory for all in-scope companies)</li>
+    <li>Prepare transition plan and climate scenario disclosures (E1)</li>
+    <li>Engage assurance provider for limited assurance (required from 2026)</li>
+    <li>Integrate sustainability statement into the management report</li>
+    <li>Tag disclosures in XBRL/inline XBRL for digital reporting</li>
+  </ul>
+</div>
+
+<!-- Section 3: GHG Calculation Template -->
+<div class="section">
+  <div class="section-num">3</div>
+  <h2>GHG Calculation Starter Template</h2>
+  <p class="subtitle">A simple table-based approach to estimating your organisation's greenhouse gas emissions</p>
+
+  <p>Use the GHG Protocol Corporate Standard as your baseline. All emissions must be converted to tonnes of CO₂ equivalent (tCO₂e) using emission factors from Defra (UK), EPA (US), or IPCC.</p>
+
+  <div class="highlight">
+    <strong>Formula:</strong> Activity Data × Emission Factor = GHG Emissions (tCO₂e)
+  </div>
+
+  <h3>Scope 1 — Direct Emissions</h3>
+  <table>
+    <tr><th>Source</th><th>Activity Data Unit</th><th>Emission Factor Source</th><th>Annual Quantity</th><th>tCO₂e</th></tr>
+    <tr><td>Natural gas (heating)</td><td>kWh</td><td>Defra 2024</td><td>____</td><td>____</td></tr>
+    <tr><td>Diesel (fleet vehicles)</td><td>Litres</td><td>Defra 2024</td><td>____</td><td>____</td></tr>
+    <tr><td>Petrol (fleet vehicles)</td><td>Litres</td><td>Defra 2024</td><td>____</td><td>____</td></tr>
+    <tr><td>Refrigerants (fugitive)</td><td>kg</td><td>IPCC AR6</td><td>____</td><td>____</td></tr>
+    <tr><td>Process emissions</td><td>tonne product</td><td>Industry-specific</td><td>____</td><td>____</td></tr>
+    <tr><td><strong>Scope 1 Total</strong></td><td></td><td></td><td></td><td><strong>____</strong></td></tr>
+  </table>
+
+  <h3>Scope 2 — Indirect Energy Emissions</h3>
+  <table>
+    <tr><th>Source</th><th>Activity Data Unit</th><th>Method</th><th>Annual Quantity</th><th>tCO₂e</th></tr>
+    <tr><td>Grid electricity (location-based)</td><td>kWh</td><td>Location-based</td><td>____</td><td>____</td></tr>
+    <tr><td>Grid electricity (market-based)</td><td>kWh</td><td>Market-based</td><td>____</td><td>____</td></tr>
+    <tr><td>District heating/cooling</td><td>kWh</td><td>Supplier factor</td><td>____</td><td>____</td></tr>
+    <tr><td><strong>Scope 2 Total</strong></td><td></td><td></td><td></td><td><strong>____</strong></td></tr>
+  </table>
+
+  <h3>Scope 3 — Value Chain Emissions (Key Categories)</h3>
+  <table>
+    <tr><th>Category</th><th>Description</th><th>Method</th><th>tCO₂e</th></tr>
+    <tr><td>Cat 1: Purchased goods &amp; services</td><td>Upstream supply chain</td><td>Spend-based</td><td>____</td></tr>
+    <tr><td>Cat 3: Fuel &amp; energy activities</td><td>Upstream extraction of fuels used</td><td>Activity-based</td><td>____</td></tr>
+    <tr><td>Cat 5: Waste generated</td><td>Waste from own operations</td><td>Activity-based</td><td>____</td></tr>
+    <tr><td>Cat 6: Business travel</td><td>Flights, rail, hotel stays</td><td>Activity-based</td><td>____</td></tr>
+    <tr><td>Cat 7: Employee commuting</td><td>Employee travel to work</td><td>Survey-based</td><td>____</td></tr>
+    <tr><td>Cat 11: Use of sold products</td><td>Consumer use-phase emissions</td><td>Activity-based</td><td>____</td></tr>
+    <tr><td><strong>Scope 3 Total</strong></td><td></td><td></td><td><strong>____</strong></td></tr>
+  </table>
+
+  <h3>Total GHG Inventory</h3>
+  <table>
+    <tr><th>Scope</th><th>tCO₂e</th><th>% of Total</th></tr>
+    <tr><td>Scope 1</td><td>____</td><td>____%</td></tr>
+    <tr><td>Scope 2 (market-based)</td><td>____</td><td>____%</td></tr>
+    <tr><td>Scope 3</td><td>____</td><td>____%</td></tr>
+    <tr><td><strong>Grand Total</strong></td><td><strong>____</strong></td><td><strong>100%</strong></td></tr>
+  </table>
+
+  <div class="highlight">
+    <strong>Tip:</strong> For Scope 3 spend-based estimates, use the Defra spend-based emission factors or the EEIO (Environmentally Extended Input-Output) models. For a fully automated tool, see our <strong>Advanced GHG Emissions Calculator</strong> on the BTW AI marketplace.
+  </div>
+</div>
+
+<!-- Section 4: Climate Risk Framework -->
+<div class="section">
+  <div class="section-num">4</div>
+  <h2>Climate Risk Framework Overview</h2>
+  <p class="subtitle">Understanding physical and transition climate risks — aligned with TCFD recommendations</p>
+
+  <p>Climate risk is now a mainstream financial and operational risk. The TCFD framework (adopted by ISSB, CSRD, and regulators globally) organises climate risks into two main categories:</p>
+
+  <h3>Physical Risks</h3>
+  <p>Risks arising from the physical impacts of climate change on assets, operations, and supply chains.</p>
+  <table>
+    <tr><th>Type</th><th>Examples</th><th>Time Horizon</th></tr>
+    <tr><td><strong>Acute</strong></td><td>Extreme heat events, flooding, hurricanes, wildfires</td><td>Near to medium term</td></tr>
+    <tr><td><strong>Chronic</strong></td><td>Sea level rise, shifting precipitation, temperature increases</td><td>Medium to long term</td></tr>
+  </table>
+
+  <h3>Transition Risks</h3>
+  <p>Risks arising from the transition to a lower-carbon economy.</p>
+  <table>
+    <tr><th>Category</th><th>Examples</th></tr>
+    <tr><td><strong>Policy &amp; Legal</strong></td><td>Carbon pricing, fuel standards, litigation risk, CSRD fines</td></tr>
+    <tr><td><strong>Technology</strong></td><td>Disruption from clean technologies, stranded fossil fuel assets</td></tr>
+    <tr><td><strong>Market</strong></td><td>Shifts in consumer preferences, commodity price changes</td></tr>
+    <tr><td><strong>Reputational</strong></td><td>Greenwashing accusations, investor pressure, media scrutiny</td></tr>
+  </table>
+
+  <h3>Climate Scenario Analysis — 3-Step Process</h3>
+  <ol>
+    <li style="padding:8px 0"><strong>Select scenarios:</strong> Use NGFS (Network for Greening the Financial System) or IPCC SSP scenarios. Recommended: Net Zero 2050 (orderly transition), Delayed Transition, and Hot House World (4°C).</li>
+    <li style="padding:8px 0"><strong>Identify exposure:</strong> Map which assets, operations, and revenue streams are exposed to each physical and transition risk under each scenario.</li>
+    <li style="padding:8px 0"><strong>Assess financial impact:</strong> Quantify or qualify the potential financial impact on revenue, costs, capex, and asset values under each scenario.</li>
+  </ol>
+
+  <h3>TCFD Disclosure Requirements</h3>
+  <ul class="checklist">
+    <li>Governance: Board oversight and management role in climate risk</li>
+    <li>Strategy: Climate risks and opportunities, scenario analysis results</li>
+    <li>Risk Management: Process for identifying and assessing climate risks</li>
+    <li>Metrics &amp; Targets: GHG emissions (Scope 1, 2, 3), reduction targets, progress</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>Ready to go further?</strong> BTW AI's <em>Company-Level Climate Scenario Analysis Dashboard</em> includes pre-loaded NGFS scenario data, physical risk heatmaps, and TCFD-aligned output reports — available for just £5 on our marketplace.
+  </div>
+</div>
+
+<!-- Footer Banner -->
+<div class="footer-banner">
+  <h3>Ready to go beyond the basics?</h3>
+  <p>Explore our full suite of professional ESG tools, dashboards, and templates — starting at just £5.</p>
+  <a href="https://btw-ai.site/marketplace">Browse the ESG Marketplace →</a>
+  <p style="margin-top:16px; font-size:12px; opacity:0.7">© BTW AI Services | jayshah596@gmail.com | btw-ai.site</p>
+</div>
+
+</body>
+</html>
