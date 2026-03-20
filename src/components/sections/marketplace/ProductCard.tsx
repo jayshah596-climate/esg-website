@@ -11,7 +11,12 @@ export function ProductCard({ product }: ProductCardProps) {
   const buyLink = `/contact?product=${encodeURIComponent(product.title)}&action=buy`
   const demoLink = `/contact?product=${encodeURIComponent(product.title)}&action=demo`
 
-  const badgeVariant = product.badge === 'Most Popular' ? 'green' : product.badge === 'Best Value' ? 'blue' : 'orange'
+  const badgeVariant =
+    product.badge === 'Most Popular'
+      ? 'green'
+      : product.badge === 'Best Value' || product.badge?.startsWith('Starter')
+      ? 'blue'
+      : 'orange'
 
   return (
     <div className="relative bg-surface border border-white/10 rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 flex flex-col">
@@ -64,13 +69,25 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* CTAs */}
         <div className="flex gap-3 pt-4 border-t border-white/10">
-          <Link
-            href={buyLink}
-            className="flex-1 flex items-center justify-center gap-2 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 hover:scale-105 text-sm"
-          >
-            <ShoppingCart className="w-4 h-4" />
-            Buy Now
-          </Link>
+          {product.stripeLink ? (
+            <a
+              href={product.stripeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 hover:scale-105 text-sm"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              Get Instant Access
+            </a>
+          ) : (
+            <Link
+              href={buyLink}
+              className="flex-1 flex items-center justify-center gap-2 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 hover:scale-105 text-sm"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              Buy Now
+            </Link>
+          )}
           <Link
             href={demoLink}
             className="flex items-center justify-center gap-2 px-4 py-3 bg-transparent border border-white/20 text-white font-semibold rounded-lg hover:border-secondary hover:text-secondary transition-all duration-200 text-sm"
@@ -79,6 +96,12 @@ export function ProductCard({ product }: ProductCardProps) {
             Demo
           </Link>
         </div>
+        {product.stripeLink && (
+          <p className="text-center text-xs text-gray-500 mt-2">Secure payment powered by Stripe</p>
+        )}
+        {product.limitedPricing && (
+          <p className="text-center text-xs text-accent mt-1 font-medium">Limited-time pricing</p>
+        )}
       </div>
     </div>
   )

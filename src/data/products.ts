@@ -7,6 +7,8 @@ export interface Product {
   badge?: string
   category: string
   format: string
+  stripeLink?: string
+  limitedPricing?: boolean
 }
 
 export const products: Product[] = [
@@ -39,10 +41,12 @@ export const products: Product[] = [
       'Generates audit-ready GHG inventory summary',
       'Includes worked example for quick onboarding',
     ],
-    price: '£299',
-    badge: 'Best Value',
+    price: '£5',
+    badge: 'Starter Offer £5',
     category: 'Calculator',
     format: 'Excel / Google Sheets',
+    stripeLink: 'https://buy.stripe.com/00w14n3fv9IN1MObNNgYU00',
+    limitedPricing: true,
   },
   {
     id: 3,
