@@ -3,12 +3,8 @@
 import { useState } from 'react'
 import { Download, CheckCircle, Mail } from 'lucide-react'
 
-// ─── Google Apps Script Webhook ──────────────────────────────────────────────
-// 1. Open your Google Sheet: https://docs.google.com/spreadsheets/d/1HdfvG-8nW73nN1iGCSh1NTJ2RvPtcATQY8cMOz3iVn0
-// 2. Go to Extensions > Apps Script and paste the code from /public/apps-script-leads.js
-// 3. Deploy as Web App (Execute as: Me, Who has access: Anyone)
-// 4. Copy the deployment URL and replace the placeholder below
-const LEADS_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxDVEPDY-u45sbBtninrzefEbyGNe8Vdt3ZxRlA8vFPYRY__Fiw0ScBQrLhcixy6zuNqw/exec'
+// ─── Formspree Endpoint ───────────────────────────────────────────────────────
+const LEADS_FORM_ENDPOINT = 'https://formspree.io/f/xvzwyjzg'
 // ─────────────────────────────────────────────────────────────────────────────
 
 const TOOLKIT_DOWNLOAD_URL = '/esg-starter-toolkit.html'
@@ -24,18 +20,14 @@ export function LeadMagnetBanner() {
     setLoading(true)
 
     try {
-      // Save email to Google Sheet via Apps Script webhook (no-cors: fire and forget)
-      await fetch(LEADS_SHEET_WEBHOOK, {
+      const res = await fetch(LEADS_FORM_ENDPOINT, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({
-          email,
-          date: new Date().toISOString(),
-        }),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email, source: 'ESG Toolkit Download' }),
       })
+      if (!res.ok) throw new Error('Submission failed')
     } catch {
-      // Silently continue — webhook may not be configured yet
+      // Silently continue — download still proceeds
     }
 
     setSubmitted(true)
