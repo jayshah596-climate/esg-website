@@ -8,7 +8,7 @@ import { Download, CheckCircle, Mail } from 'lucide-react'
 // 2. Go to Extensions > Apps Script and paste the code from /public/apps-script-leads.js
 // 3. Deploy as Web App (Execute as: Me, Who has access: Anyone)
 // 4. Copy the deployment URL and replace the placeholder below
-const LEADS_SHEET_WEBHOOK = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_LEADS_SCRIPT_URL/exec'
+const LEADS_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxDVEPDY-u45sbBtninrzefEbyGNe8Vdt3ZxRlA8vFPYRY__Fiw0ScBQrLhcixy6zuNqw/exec'
 // ─────────────────────────────────────────────────────────────────────────────
 
 const TOOLKIT_DOWNLOAD_URL = '/esg-starter-toolkit.html'
