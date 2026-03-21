@@ -12,7 +12,7 @@ import {
 // 2. Go to Extensions > Apps Script and paste the code from /public/apps-script-contact.js
 // 3. Deploy as Web App (Execute as: Me, Who has access: Anyone)
 // 4. Copy the deployment URL and replace the placeholder below
-const CONTACT_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwLhE0LjQjv3dnH0Pdn2zjvD3kCiVx1M3yZSnVx7RDBOyAPnNS2o_MknBRmX9q8_QvDYw/exec'
+const CONTACT_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwjXVOSdhUfw8o-W9tqlaiJeWWMx7YgTmFGWezeBECoRciLvgA3ISi0Jb8JLnEczMCr/exec'
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface FormData {
