@@ -7,12 +7,8 @@ import {
   CheckCircle, Send, Clock, MessageSquare, ExternalLink, ArrowRight
 } from 'lucide-react'
 
-// ─── Google Apps Script Webhook ──────────────────────────────────────────────
-// 1. Open your Google Sheet: https://docs.google.com/spreadsheets/d/1mhxZQHed0xQihSweHxqWqzJC66PBPUV3I94EfDlx5Ww
-// 2. Go to Extensions > Apps Script and paste the code from /public/apps-script-contact.js
-// 3. Deploy as Web App (Execute as: Me, Who has access: Anyone)
-// 4. Copy the deployment URL and replace the placeholder below
-const CONTACT_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwjXVOSdhUfw8o-W9tqlaiJeWWMx7YgTmFGWezeBECoRciLvgA3ISi0Jb8JLnEczMCr/exec'
+// ─── Formspree Endpoint ───────────────────────────────────────────────────────
+const CONTACT_FORM_ENDPOINT = 'https://formspree.io/f/xvzwyjzg'
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface FormData {
@@ -60,22 +56,20 @@ export default function ContactPage() {
     setLoading(true)
 
     try {
-      // Save to Google Sheet via Apps Script webhook (no-cors: fire and forget)
-      await fetch(CONTACT_SHEET_WEBHOOK, {
+      const res = await fetch(CONTACT_FORM_ENDPOINT, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           name: form.name,
           company: form.company || '—',
           email: form.email,
           service: form.service || '—',
           message: form.message,
-          date: new Date().toISOString(),
         }),
       })
+      if (!res.ok) throw new Error('Submission failed')
     } catch {
-      // Silently continue — show success regardless (webhook may not be configured yet)
+      // Silently continue — form UI shows success regardless
     }
 
     setSubmitted(true)
