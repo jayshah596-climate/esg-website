@@ -13,11 +13,13 @@ export function LeadMagnetBanner() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email.trim()) return
     setLoading(true)
+    setError('')
 
     try {
       const res = await fetch(LEADS_FORM_ENDPOINT, {
@@ -25,9 +27,14 @@ export function LeadMagnetBanner() {
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ email, source: 'ESG Toolkit Download' }),
       })
-      if (!res.ok) throw new Error('Submission failed')
-    } catch {
-      // Silently continue — download still proceeds
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data?.error || `Error ${res.status}`)
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+      setLoading(false)
+      return
     }
 
     setSubmitted(true)
@@ -101,6 +108,9 @@ export function LeadMagnetBanner() {
             </form>
           )}
 
+          {error && (
+            <p className="text-red-400 text-xs mt-2">{error}</p>
+          )}
           <p className="text-gray-500 text-xs mt-3">No spam. Unsubscribe anytime. Your data is safe with us.</p>
         </div>
       </div>
