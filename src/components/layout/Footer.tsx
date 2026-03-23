@@ -68,7 +68,9 @@ export function Footer() {
                 <Phone className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/climateai_lab/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-400 hover:border-pink-400/40 transition-all duration-200"
                 aria-label="Instagram"
               >

@@ -1,14 +1,23 @@
+'use client'
+
 import { ShoppingCart, Check, Star, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 import { Badge } from '@/components/ui/Badge'
+import { CurrencyPrice } from '@/components/ui/CurrencyPrice'
 import type { Product } from '@/data/products'
 
 interface ProductCardProps {
   product: Product
 }
 
+/** Extract the numeric GBP value from a price string like "£5" or "£199" */
+function toGBP(price: string): number {
+  return parseFloat(price.replace(/[^0-9.]/g, '')) || 0
+}
+
 export function ProductCard({ product }: ProductCardProps) {
   const demoLink = `/contact?product=${encodeURIComponent(product.title)}&action=demo`
+  const gbp = toGBP(product.price)
 
   const badgeVariant =
     product.badge === 'Most Popular'
@@ -32,7 +41,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <img
           src={product.image}
           alt={product.title}
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent" />
@@ -47,7 +56,10 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Header */}
         <div className="flex items-start justify-between gap-3 mb-3">
           <h3 className="text-white font-bold text-lg leading-snug">{product.title}</h3>
-          <span className="text-3xl font-bold text-accent whitespace-nowrap">{product.price}</span>
+          <div className="text-right flex-shrink-0">
+            <CurrencyPrice gbp={gbp} className="text-3xl font-bold text-accent" showGBPHint={false} />
+            <div className="text-gray-500 text-xs mt-0.5">£{gbp} GBP</div>
+          </div>
         </div>
 
         {/* Rating */}

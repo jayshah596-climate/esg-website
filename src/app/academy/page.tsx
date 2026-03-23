@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { CheckCircle, Lock, Star, Zap, BookOpen, TrendingUp, Bot } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
+import { CurrencyPrice } from '@/components/ui/CurrencyPrice'
+import { CurrencyBadge } from '@/components/widgets/CurrencyBadge'
 
 export const metadata: Metadata = {
   title: 'BTW Academy – Learn ESG, Climate & AI',
@@ -13,6 +15,7 @@ const COURSES = [
     title: 'GHG Emission Inventory Scope 1–2–3 (In Depth)',
     stripeUrl: 'https://buy.stripe.com/bJe28rdU9cUZ4Z03hhgYU0c',
     price: '£50',
+    priceGBP: 50,
     icon: TrendingUp,
     color: 'from-green-500/20 to-emerald-600/10',
     borderColor: 'border-green-500/30 hover:border-green-400/50',
@@ -32,6 +35,7 @@ const COURSES = [
     title: 'Climate Risk Masterclass (Assessment & Management)',
     stripeUrl: 'https://buy.stripe.com/9B63cvbM1dZ36344llgYU0d',
     price: '£150',
+    priceGBP: 150,
     icon: BookOpen,
     color: 'from-blue-500/20 to-cyan-600/10',
     borderColor: 'border-blue-500/30 hover:border-blue-400/50',
@@ -51,6 +55,7 @@ const COURSES = [
     title: 'Claude Code for Climate Risk & ESG Reporting',
     stripeUrl: 'https://buy.stripe.com/cNi7sLaHX7AFezA3hhgYU0e',
     price: '£100',
+    priceGBP: 100,
     icon: Bot,
     color: 'from-purple-500/20 to-violet-600/10',
     borderColor: 'border-purple-500/30 hover:border-purple-400/50',
@@ -98,6 +103,9 @@ export default function AcademyPage() {
         </div>
       </section>
 
+      {/* Live currency indicator */}
+      <CurrencyBadge />
+
       {/* Courses */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -130,7 +138,11 @@ export default function AcademyPage() {
 
                     {/* Price */}
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-3xl font-bold text-accent">{course.price}</span>
+                      <CurrencyPrice
+                        gbp={course.priceGBP}
+                        className="text-3xl font-bold text-accent"
+                        showGBPHint={true}
+                      />
                       <span className="text-gray-500 text-sm">one-time</span>
                     </div>
 

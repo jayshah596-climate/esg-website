@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/Footer'
 import { WhatsAppButton } from '@/components/widgets/WhatsAppButton'
 import { ChatBot } from '@/components/widgets/ChatBot'
 import { CTABar } from '@/components/widgets/CTABar'
+import { CurrencyProvider } from '@/contexts/CurrencyContext'
 
 export const metadata: Metadata = {
   title: {
@@ -47,14 +48,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-dark text-white antialiased">
-        <CTABar />
-        <div className="pt-[38px]">
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </div>
-        <WhatsAppButton />
-        <ChatBot />
+        <CurrencyProvider>
+          <CTABar />
+          <div className="pt-[38px]">
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </div>
+          <WhatsAppButton />
+          <ChatBot />
+        </CurrencyProvider>
       </body>
     </html>
   )

@@ -4,8 +4,13 @@ import Link from 'next/link'
 import { BarChart3, ShoppingCart, ArrowRight, Star, LayoutDashboard, Calculator, Globe } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Badge } from '@/components/ui/Badge'
+import { CurrencyPrice } from '@/components/ui/CurrencyPrice'
 import { products } from '@/data/products'
 import { motion } from 'framer-motion'
+
+function toGBP(price: string): number {
+  return parseFloat(price.replace(/[^0-9.]/g, '')) || 0
+}
 
 const productIcons = [LayoutDashboard, BarChart3, Globe, Calculator]
 
@@ -100,7 +105,11 @@ export function MarketplacePreview() {
                     <h3 className="text-white font-semibold text-base leading-snug group-hover:text-accent transition-colors">
                       {product.title}
                     </h3>
-                    <span className="text-2xl font-bold text-accent whitespace-nowrap">{product.price}</span>
+                    <CurrencyPrice
+                      gbp={toGBP(product.price)}
+                      className="text-2xl font-bold text-accent whitespace-nowrap"
+                      showGBPHint={false}
+                    />
                   </div>
 
                   <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">

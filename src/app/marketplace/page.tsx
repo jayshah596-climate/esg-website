@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Shield, Download, Headphones, Zap } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { ProductCard } from '@/components/sections/marketplace/ProductCard'
+import { CurrencyBadge } from '@/components/widgets/CurrencyBadge'
 import { products } from '@/data/products'
 
 export const metadata: Metadata = {
@@ -35,9 +36,11 @@ export default function MarketplacePage() {
       {/* Promo Banner */}
       <div className="bg-gradient-to-r from-primary via-accent to-secondary py-3 px-4">
         <p className="text-center text-white text-sm font-semibold tracking-wide">
-          🔥 Launch Offer – Selected tools starting at £5
+          🔥 Launch Offer – Selected tools starting at £5 · Prices shown in your local currency
         </p>
       </div>
+      {/* Live currency indicator */}
+      <CurrencyBadge />
 
       {/* Hero */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 hero-animated-bg grid-pattern">
