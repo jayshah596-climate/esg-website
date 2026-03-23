@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { X, ArrowRight } from 'lucide-react'
+
+const TOPMATE_URL = 'https://topmate.io/jay_shah_btw/1187577'
 
 export function CTABar() {
   const [dismissed, setDismissed] = useState(false)
@@ -17,12 +18,14 @@ export function CTABar() {
           <span className="text-white text-sm font-medium">
             Book your <strong>Free ESG Consultation</strong> — Limited slots available
           </span>
-          <Link
-            href="/contact"
+          <a
+            href={TOPMATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1 text-white/90 hover:text-white text-sm font-semibold border-b border-white/40 hover:border-white transition-colors"
           >
             Book Now <ArrowRight className="w-3 h-3" />
-          </Link>
+          </a>
         </div>
         <button
           onClick={() => setDismissed(true)}

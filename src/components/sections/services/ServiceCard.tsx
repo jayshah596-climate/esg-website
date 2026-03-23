@@ -1,14 +1,15 @@
-import Link from 'next/link'
 import {
   FileText, TrendingUp, BarChart3, Target, DollarSign,
-  LayoutDashboard, Network, Layers, Calendar
+  LayoutDashboard, Network, Layers, Calendar, Bot
 } from 'lucide-react'
+
+const TOPMATE_URL = 'https://topmate.io/jay_shah_btw/1187577'
 import { Badge } from '@/components/ui/Badge'
 import type { Service } from '@/data/services'
 
 const iconMap: Record<string, React.ElementType> = {
   FileText, TrendingUp, BarChart3, Target, DollarSign,
-  LayoutDashboard, Network, Layers,
+  LayoutDashboard, Network, Layers, Bot,
 }
 
 const colorVariants: Record<string, { icon: string; badge: 'green' | 'blue' | 'orange' | 'purple' | 'pink' | 'teal' | 'gray' }> = {
@@ -81,13 +82,15 @@ export function ServiceCard({ service }: ServiceCardProps) {
       </div>
 
       <div className="mt-6 pt-5 border-t border-white/10">
-        <Link
-          href={`/contact?service=${service.slug}`}
+        <a
+          href={TOPMATE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 hover:scale-105 text-sm"
         >
           <Calendar className="w-4 h-4" />
           Book Consultation
-        </Link>
+        </a>
       </div>
     </div>
   )

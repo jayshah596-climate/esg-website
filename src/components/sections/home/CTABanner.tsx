@@ -1,5 +1,7 @@
-import Link from 'next/link'
 import { ArrowRight, Calendar } from 'lucide-react'
+import Link from 'next/link'
+
+const TOPMATE_URL = 'https://topmate.io/jay_shah_btw/1187577'
 
 export function CTABanner() {
   return (
@@ -23,14 +25,16 @@ export function CTABanner() {
           Book a free 30-minute ESG consultation with Jay Shah and discover what's possible for your organisation.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/contact"
+          <a
+            href={TOPMATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-xl hover:scale-105 group text-lg"
           >
             <Calendar className="w-5 h-5" />
             Book Free Consultation
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </a>
           <Link
             href="/marketplace"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-200 text-lg"

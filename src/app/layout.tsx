@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: '%s | BTW AI Services',
   },
   description:
-    'Build The World AI — premium ESG, Climate & Sustainability consulting firm. Climate risk, GHG accounting, CSRD compliance, net zero strategy, and digital ESG tools. Led by Jay Shah, ESG specialist with 9+ years experience.',
+    'Build The World AI — premium ESG, Climate & Sustainability consulting firm. Climate risk, GHG accounting, CSRD compliance, net zero strategy, and digital ESG tools. Led by Jay Shah, ESG specialist with 11+ years experience.',
   keywords: [
     'ESG consulting', 'climate risk', 'net zero strategy', 'GHG accounting', 'CSRD compliance',
     'TCFD', 'sustainability consulting', 'carbon footprint', 'Scope 3 emissions',

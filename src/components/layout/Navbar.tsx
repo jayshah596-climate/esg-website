@@ -5,10 +5,13 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Leaf, ChevronDown } from 'lucide-react'
 
+const TOPMATE_URL = 'https://topmate.io/jay_shah_btw/1187577'
+
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/marketplace', label: 'Marketplace' },
+  { href: '/academy', label: 'BTW Academy' },
   { href: '/about', label: 'About' },
   { href: '/clients', label: 'Clients' },
   { href: '/resources', label: 'Resources' },
@@ -68,12 +71,14 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/contact"
+            <a
+              href={TOPMATE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-primary/30 hover:scale-105"
             >
               Book Consultation
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -105,12 +110,14 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-2 pb-1">
-              <Link
-                href="/contact"
+              <a
+                href={TOPMATE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
               >
                 Book Free Consultation
-              </Link>
+              </a>
             </div>
           </div>
         </div>

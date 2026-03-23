@@ -13,6 +13,30 @@ export interface Service {
 
 export const services: Service[] = [
   {
+    id: 0,
+    slug: 'ai-esg-consulting',
+    title: 'AI-Based ESG Consulting',
+    icon: 'Bot',
+    color: 'green',
+    shortDescription: 'Accelerate ESG reporting, climate analysis, and compliance using AI-powered workflows — reducing timelines from months to days.',
+    problem: 'Traditional ESG consulting is time-intensive and costly, with manual data collection, report drafting, and compliance checks that can take months. Organisations need faster, smarter approaches to stay ahead of regulations.',
+    solution: 'We leverage cutting-edge AI tools including Claude Code, LLMs, and automation platforms to dramatically accelerate ESG workflows. From AI-assisted GHG calculations and automated regulatory gap analysis to AI-written disclosure drafts — we reduce reporting timelines from months to days.',
+    frameworks: ['Claude AI', 'LLM Workflows', 'CSRD', 'ISSB', 'GHG Protocol', 'Python Automation'],
+    deliverables: ['AI-accelerated ESG report', 'Automated data pipeline', 'Regulatory gap analysis (AI-assisted)', 'Prompt engineering playbook for ESG', 'AI workflow documentation'],
+  },
+  {
+    id: -1,
+    slug: 'ai-agents-esg',
+    title: 'AI Agents & Automation for ESG',
+    icon: 'Bot',
+    color: 'blue',
+    shortDescription: 'Deploy AI agents to automate GHG calculations, ESG reporting, climate risk analysis, and data extraction.',
+    problem: 'ESG teams spend enormous time on repetitive tasks: collecting supplier data, calculating emission factors, cross-referencing regulatory requirements, and formatting reports. This leaves little capacity for strategic work.',
+    solution: 'We design and deploy custom AI agents that autonomously handle ESG data extraction, Scope 1–3 calculations, CSRD checklist validation, and climate risk screening. Our agents integrate with your existing data systems and deliver real-time ESG intelligence to decision-makers.',
+    frameworks: ['Claude Agent SDK', 'MCP Servers', 'Python', 'REST APIs', 'Power Automate', 'Zapier'],
+    deliverables: ['Custom ESG AI agent', 'Automated GHG calculation workflow', 'Supplier data extraction bot', 'ESG report generation pipeline', 'Integration with existing systems'],
+  },
+  {
     id: 1,
     slug: 'esg-reporting',
     title: 'ESG Reporting & Compliance',

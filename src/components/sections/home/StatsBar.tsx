@@ -1,5 +1,5 @@
 const stats = [
-  { value: '9+', label: 'Years Experience', description: 'Across consulting, finance & public sector' },
+  { value: '11+', label: 'Years Experience', description: 'Across consulting, finance & public sector' },
   { value: '50+', label: 'Projects Delivered', description: 'ESG reports, climate strategies & tools' },
   { value: '10+', label: 'Global Clients', description: 'From asset managers to municipalities' },
   { value: '8', label: 'ESG Frameworks', description: 'CSRD, TCFD, GRI, ISSB, SFDR & more' },

@@ -5,6 +5,8 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { ServiceCard } from '@/components/sections/services/ServiceCard'
 import { services } from '@/data/services'
 
+const TOPMATE_URL = 'https://topmate.io/jay_shah_btw/1187577'
+
 export const metadata: Metadata = {
   title: 'ESG & Climate Consulting Services',
   description:
@@ -30,13 +32,15 @@ export default function ServicesPage() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
             From mandatory ESG reporting and climate risk quantification through to net zero strategy and digital tools — we deliver practical, science-based solutions.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href={TOPMATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-200 hover:scale-105 group"
           >
             Book Free Consultation
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -77,13 +81,15 @@ export default function ServicesPage() {
           <p className="text-gray-400 mb-6">
             Book a free 30-minute call and we&apos;ll help you identify the right approach for your organisation.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href={TOPMATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-200 hover:scale-105"
           >
             Get a Free ESG Assessment
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
       </section>
     </div>
