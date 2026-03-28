@@ -9,6 +9,7 @@ import { products } from '@/data/products'
 import { motion } from 'framer-motion'
 
 function toGBP(price: string): number {
+  if (price.toLowerCase() === 'free') return 0
   return parseFloat(price.replace(/[^0-9.]/g, '')) || 0
 }
 

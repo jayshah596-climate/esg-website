@@ -10,14 +10,20 @@ interface ProductCardProps {
   product: Product
 }
 
-/** Extract the numeric GBP value from a price string like "£5" or "£199" */
+/** Extract the numeric GBP value from a price string like "£5", "£199", "Free" */
 function toGBP(price: string): number {
+  if (price.toLowerCase() === 'free') return 0
   return parseFloat(price.replace(/[^0-9.]/g, '')) || 0
+}
+
+function isFree(price: string): boolean {
+  return price.toLowerCase() === 'free' || toGBP(price) === 0
 }
 
 export function ProductCard({ product }: ProductCardProps) {
   const demoLink = `/contact?product=${encodeURIComponent(product.title)}&action=demo`
   const gbp = toGBP(product.price)
+  const free = isFree(product.price)
 
   const badgeVariant =
     product.badge === 'Most Popular'
@@ -93,10 +99,14 @@ export function ProductCard({ product }: ProductCardProps) {
               href={product.stripeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 hover:scale-105 text-sm"
+              className={`flex-1 flex items-center justify-center gap-2 py-3 font-semibold rounded-lg transition-all duration-200 hover:scale-105 text-sm ${
+                free
+                  ? 'bg-accent text-white hover:bg-accent/80'
+                  : 'bg-primary text-white hover:bg-primary-700'
+              }`}
             >
               <ShoppingCart className="w-4 h-4" />
-              Get Instant Access
+              {free ? 'Get Free Access' : 'Get Instant Access'}
             </a>
           ) : (
             <button

@@ -14,6 +14,11 @@ export function CurrencyPrice({ gbp, className, showGBPHint = true }: CurrencyPr
   const { formatPrice, code, loading } = useCurrency()
   const isGBP = code === 'GBP'
 
+  // £0 is always Free regardless of currency
+  if (gbp === 0) {
+    return <span className={className}>Free</span>
+  }
+
   return (
     <span className={className}>
       <span className={loading ? 'opacity-50' : undefined}>
