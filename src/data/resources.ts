@@ -40,4 +40,14 @@ export const resources: Resource[] = [
     tags: ['Climate Risk', 'TCFD', 'Scenario Analysis', 'NGFS'],
     link: '/resources/article-3',
   },
+  {
+    id: 4,
+    title: 'How to Calculate Physical Climate Risk: Models, Methods & Excel Modelling',
+    description: 'A practical deep-dive into physical climate risk quantification — covering IPCC/NGFS scenarios, open-source models like CLIMADA, and how to build a working climate risk model in Excel.',
+    type: 'guide',
+    date: '2026-03-28',
+    readTime: '15 min read',
+    tags: ['Physical Climate Risk', 'Climate Modelling', 'Excel', 'NGFS', 'TCFD'],
+    link: '/resources/article-4',
+  },
 ]

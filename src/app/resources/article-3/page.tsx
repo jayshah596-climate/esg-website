@@ -211,8 +211,8 @@ export default function Article3Page() {
               <ArrowLeft className="w-4 h-4" />
               Scope 3 Explained
             </Link>
-            <Link href="/resources" className="inline-flex items-center gap-1.5 text-gray-500 hover:text-accent text-sm transition-colors">
-              All Resources
+            <Link href="/resources/article-4" className="inline-flex items-center gap-1.5 text-gray-500 hover:text-accent text-sm transition-colors">
+              Calculate Physical Climate Risk
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
