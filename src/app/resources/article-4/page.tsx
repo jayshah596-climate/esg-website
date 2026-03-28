@@ -7,6 +7,22 @@ export const metadata: Metadata = {
   title: 'How to Calculate Physical Climate Risk: Models, Methods & Excel Modelling | BTW AI Resources',
   description:
     'A practical guide to quantifying physical climate risk using IPCC/NGFS scenarios, open-source models like CLIMADA, and step-by-step Excel modelling. Learn to translate hazard data into financial impact.',
+  openGraph: {
+    type: 'article',
+    locale: 'en_GB',
+    url: 'https://btw-ai-services.pages.dev/resources/article-4',
+    siteName: 'BTW AI Services',
+    title: 'How to Calculate Physical Climate Risk: Models, Methods & Excel Modelling',
+    description:
+      'A practical deep-dive into physical climate risk quantification — IPCC/NGFS scenarios, open-source models like CLIMADA, and a step-by-step Excel modelling walkthrough. Includes financial impact assessment and TCFD alignment.',
+    authors: ['Jay Shah'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Calculate Physical Climate Risk: Models, Methods & Excel Modelling',
+    description:
+      'Covering IPCC/NGFS scenarios, CLIMADA, and how to build a physical climate risk model in Excel. Step-by-step guide by BTW AI.',
+  },
 }
 
 const tags = ['Physical Climate Risk', 'Climate Modelling', 'RCP / SSP', 'NGFS', 'CLIMADA', 'Excel', 'TCFD', 'Scenario Analysis', 'Financial Impact']
