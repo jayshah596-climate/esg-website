@@ -185,7 +185,7 @@ export const products: Product[] = [
       'Interactive charts for civic planning and analysis',
       'Based on official Gujarat municipal financial data',
     ],
-    price: '£5',
+    price: 'Free',
     badge: undefined,
     category: 'Dashboard',
     format: 'Power BI',
