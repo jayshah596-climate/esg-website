@@ -79,9 +79,9 @@ export default function MarketplacePage() {
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             eyebrow="All Products"
-            title="12 Professional"
+            title="13 Professional"
             titleHighlight="ESG Tools"
-            subtitle="From GHG calculators to climate scenario dashboards and CSRD mapping tools — developed and tested in real ESG engagements."
+            subtitle="From GHG calculators to climate scenario dashboards, CSRD mapping tools, and AI planning agents — developed and tested in real ESG engagements."
           />
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">

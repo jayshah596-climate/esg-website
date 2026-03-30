@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, Clock, Tag, BookOpen, ArrowRight, Bot } from 'lucide-react'
+import { ArrowLeft, Clock, Tag, ArrowRight, BookOpen, AlertTriangle, CheckCircle, Zap } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 
 export const metadata: Metadata = {
-  title: 'How to Calculate Physical Climate Risk: Models, Methods & Excel Modelling | BTW AI Resources',
+  title: 'How to Calculate Physical Climate Risk: Models, Methods & Excel | BTW AI',
   description:
-    'A practical guide to quantifying physical climate risk using IPCC/NGFS scenarios, open-source models like CLIMADA, and step-by-step Excel modelling. Learn to translate hazard data into financial impact.',
+    'A complete practitioner guide to calculating physical climate risk — covering acute vs chronic hazards, IPCC AR6 / NGFS scenario models, CLIMADA, and a step-by-step Excel Expected Annual Loss methodology.',
 }
 
-const tags = ['Physical Climate Risk', 'Climate Modelling', 'RCP / SSP', 'NGFS', 'CLIMADA', 'Excel', 'TCFD', 'Scenario Analysis', 'Financial Impact']
+const tags = ['Physical Climate Risk', 'TCFD', 'IPCC AR6', 'NGFS', 'Excel Modelling', 'Scenario Analysis', 'ISSB S2']
+
+const TOPMATE_URL = 'https://topmate.io/jay_shah_btw/1187577'
 
 export default function Article4Page() {
   return (
@@ -17,7 +19,7 @@ export default function Article4Page() {
       <article className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
 
-          {/* Back link */}
+          {/* Back */}
           <Link
             href="/resources"
             className="inline-flex items-center gap-1.5 text-gray-500 hover:text-accent text-sm transition-colors mb-8"
@@ -28,7 +30,7 @@ export default function Article4Page() {
 
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            <Badge variant="blue" size="sm">Guide</Badge>
+            <Badge variant="green" size="sm">Guide</Badge>
             <span className="flex items-center gap-1 text-gray-500 text-xs">
               <Clock className="w-3 h-3" />
               15 min read
@@ -38,10 +40,10 @@ export default function Article4Page() {
 
           {/* Title */}
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-            How to Calculate Physical Climate Risk: Models, Methods &amp; Excel Modelling
+            How to Calculate Physical Climate Risk: Models, Methods & Excel
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed mb-10">
-            Physical climate risk is no longer a theoretical concern — regulators, lenders, and investors now require quantified assessments. This guide walks you through the available models, a step-by-step methodology, and how to build a working physical climate risk model in Excel — even without specialist software.
+            Physical climate risk is now a mandatory disclosure requirement under TCFD, ISSB S2, and CSRD E1 — yet most organisations don't know where to start. This guide takes you from first principles through to a working Excel model, with pointers to the professional tools used by insurers, banks, and consultants.
           </p>
 
           {/* Tags */}
@@ -57,368 +59,328 @@ export default function Article4Page() {
           {/* Content */}
           <div className="space-y-10 text-gray-300 leading-relaxed">
 
-            {/* Section 1 */}
+            {/* 1 */}
             <section>
-              <h2 className="text-xl font-bold text-white mb-3">What is Physical Climate Risk?</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">1. What is Physical Climate Risk?</h2>
               <p>
-                Physical climate risk refers to the financial and operational consequences of changes in the physical climate system — both sudden extreme events and long-term shifts in climate patterns. Under the <strong className="text-white">TCFD framework</strong> (now embedded in IFRS S2 and ESRS E1), companies must identify, assess, and disclose these risks.
+                Physical climate risk refers to the financial and operational impacts on assets, supply chains, and people arising from changes in the physical climate system. Under the TCFD framework — and now codified in <strong className="text-white">ISSB IFRS S2</strong> and <strong className="text-white">CSRD ESRS E1</strong> — companies must assess and disclose these risks across multiple time horizons and warming scenarios.
               </p>
+              <p className="mt-4">Physical risks are divided into two categories:</p>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <p className="text-white font-semibold text-sm mb-2">Acute Physical Risks</p>
-                  <p className="text-gray-400 text-xs mb-3">Sudden, event-driven hazards with immediate impact.</p>
-                  <ul className="text-gray-400 text-xs space-y-1 list-disc list-inside">
-                    <li>Flooding (coastal, pluvial, fluvial)</li>
-                    <li>Extreme heat &amp; heatwaves</li>
-                    <li>Tropical cyclones &amp; severe storms</li>
-                    <li>Wildfires</li>
-                    <li>Drought &amp; water scarcity events</li>
-                  </ul>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <p className="text-white font-semibold text-sm mb-2">Chronic Physical Risks</p>
-                  <p className="text-gray-400 text-xs mb-3">Gradual, long-term shifts in baseline climate conditions.</p>
-                  <ul className="text-gray-400 text-xs space-y-1 list-disc list-inside">
-                    <li>Rising mean temperatures</li>
-                    <li>Sea level rise</li>
-                    <li>Changing precipitation patterns</li>
-                    <li>Permafrost thaw</li>
-                    <li>Ocean acidification</li>
-                  </ul>
-                </div>
-              </div>
-              <p className="mt-4 text-gray-400 text-sm">
-                Why does this matter financially? Physical risks affect asset values, supply chains, insurance costs, revenue continuity, and capital expenditure requirements. Lenders and equity investors are increasingly pricing this into financing decisions.
-              </p>
-            </section>
-
-            {/* Section 2 */}
-            <section>
-              <h2 className="text-xl font-bold text-white mb-3">The Quantification Challenge</h2>
-              <p>
-                Calculating physical climate risk involves two linked steps:
-              </p>
-              <ol className="space-y-4 mt-4">
-                {[
-                  ['Hazard Assessment', 'What climate hazards are projected at each location where you have assets, operations, or supply chain exposure? At what intensity? Under which scenario and time horizon?'],
-                  ['Vulnerability & Impact Assessment', 'How sensitive are your specific assets to those hazards? What is the resulting damage, disruption, or financial loss? This requires understanding asset type, construction, criticality, and adaptive capacity.'],
-                ].map(([title, desc], i) => (
-                  <li key={i} className="flex gap-4">
-                    <span className="w-7 h-7 rounded-full bg-primary/30 border border-primary/40 text-accent font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
-                    <div>
-                      <p className="text-white font-semibold text-sm">{title}</p>
-                      <p className="text-gray-400 text-sm mt-1">{desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              <p className="mt-5">
-                The key data inputs you need are: <strong className="text-white">asset location data</strong> (lat/long or postcode), <strong className="text-white">asset type &amp; characteristics</strong> (building type, age, elevation), and <strong className="text-white">climate projections</strong> at the relevant spatial scale and time horizon.
-              </p>
-            </section>
-
-            {/* Section 3 */}
-            <section>
-              <h2 className="text-xl font-bold text-white mb-3">Climate Models &amp; Scenarios Available</h2>
-              <p>
-                You don&apos;t need to build climate physics from scratch. Several established scenario frameworks and open-source/commercial tools provide the hazard data layer.
-              </p>
-
-              <h3 className="text-lg font-bold text-white mt-6 mb-3">IPCC Scenarios: RCP and SSP</h3>
-              <p className="mb-4 text-sm text-gray-400">
-                The IPCC defines emissions pathways that drive climate projections. Older frameworks used <strong className="text-white">Representative Concentration Pathways (RCPs)</strong>; the current standard is <strong className="text-white">Shared Socioeconomic Pathways (SSPs)</strong> from CMIP6.
-              </p>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm border-collapse">
-                  <thead>
-                    <tr className="border-b border-white/20">
-                      <th className="text-left py-2 pr-4 text-gray-400 font-medium">Scenario</th>
-                      <th className="text-left py-2 pr-4 text-gray-400 font-medium">Warming by 2100</th>
-                      <th className="text-left py-2 text-gray-400 font-medium">Narrative</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-white/5">
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">SSP1-1.9 (RCP 2.6)</td>
-                      <td className="py-2.5 pr-4 text-green-400 text-xs">~1.5°C</td>
-                      <td className="py-2.5 text-gray-400 text-xs">Aggressive mitigation; sustainable development path</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">SSP2-4.5 (RCP 4.5)</td>
-                      <td className="py-2.5 pr-4 text-orange-400 text-xs">~2.7°C</td>
-                      <td className="py-2.5 text-gray-400 text-xs">Intermediate emissions; current policy trajectory</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">SSP5-8.5 (RCP 8.5)</td>
-                      <td className="py-2.5 pr-4 text-red-400 text-xs">~4.4°C</td>
-                      <td className="py-2.5 text-gray-400 text-xs">Fossil-fuel intensive; worst-case physical risk scenario</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 className="text-lg font-bold text-white mt-7 mb-3">NGFS Scenarios</h3>
-              <p className="mb-4 text-sm text-gray-400">
-                The <strong className="text-white">Network for Greening the Financial System (NGFS)</strong> provides scenarios specifically designed for financial risk assessment, combining IPCC climate pathways with macroeconomic models. They are the standard for TCFD/ISSB disclosure.
-              </p>
-              <div className="grid grid-cols-1 gap-3">
-                {[
-                  ['Net Zero 2050', '~1.5°C', 'Low physical risk. Used as the &quot;best case&quot; baseline.', 'green'],
-                  ['Delayed Transition', '~1.8–2°C', 'Moderate physical risk; useful to stress-test mid-range outcomes.', 'orange'],
-                  ['Hot House World', '~3–4°C', 'Very high physical risk. The scenario that drives the most severe asset damage estimates.', 'red'],
-                ].map(([name, temp, desc, color]) => (
-                  <div key={name} className={`bg-white/5 border rounded-xl p-4 ${color === 'green' ? 'border-green-500/20' : color === 'orange' ? 'border-orange-500/20' : 'border-red-500/20'}`}>
-                    <div className="flex items-start justify-between gap-4 mb-1">
-                      <p className="text-white font-semibold text-sm">{name}</p>
-                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${color === 'green' ? 'bg-green-500/20 text-green-400' : color === 'orange' ? 'bg-orange-500/20 text-orange-400' : 'bg-red-500/20 text-red-400'}`}>{temp}</span>
-                    </div>
-                    <p className="text-gray-400 text-sm" dangerouslySetInnerHTML={{ __html: desc }} />
+                <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <AlertTriangle className="w-4 h-4 text-orange-400" />
+                    <p className="text-orange-400 font-semibold text-sm">Acute Risks</p>
                   </div>
-                ))}
-              </div>
-
-              <h3 className="text-lg font-bold text-white mt-7 mb-3">Available Models &amp; Tools</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm border-collapse">
-                  <thead>
-                    <tr className="border-b border-white/20">
-                      <th className="text-left py-2 pr-4 text-gray-400 font-medium">Tool / Model</th>
-                      <th className="text-left py-2 pr-4 text-gray-400 font-medium">Type</th>
-                      <th className="text-left py-2 text-gray-400 font-medium">Best For</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-white/5">
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">CLIMADA (ETH Zürich)</td>
-                      <td className="py-2.5 pr-4 text-green-400 text-xs">Open-source (Python)</td>
-                      <td className="py-2.5 text-gray-400 text-xs">Probabilistic hazard + damage modelling; tropical cyclones, floods, heat</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">OS-Climate Platform</td>
-                      <td className="py-2.5 pr-4 text-green-400 text-xs">Open-source</td>
-                      <td className="py-2.5 text-gray-400 text-xs">Portfolio-level physical &amp; transition risk; PCAF-aligned methodology</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">CMIP6 / ERA5 Data</td>
-                      <td className="py-2.5 pr-4 text-green-400 text-xs">Free datasets</td>
-                      <td className="py-2.5 text-gray-400 text-xs">Raw climate projections &amp; historical reanalysis for custom modelling</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">Jupiter Intelligence</td>
-                      <td className="py-2.5 pr-4 text-blue-400 text-xs">Commercial SaaS</td>
-                      <td className="py-2.5 text-gray-400 text-xs">High-resolution asset-level risk scores; widely used by insurers &amp; banks</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">Four Twenty Seven (Moody&apos;s)</td>
-                      <td className="py-2.5 pr-4 text-blue-400 text-xs">Commercial data</td>
-                      <td className="py-2.5 text-gray-400 text-xs">Country &amp; facility risk scores integrated with financial data providers</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-white font-medium">Moody&apos;s ClimateOnDemand</td>
-                      <td className="py-2.5 pr-4 text-blue-400 text-xs">Commercial API</td>
-                      <td className="py-2.5 text-gray-400 text-xs">Integrates climate scores into credit &amp; investment workflows</td>
-                    </tr>
-                  </tbody>
-                </table>
+                  <p className="text-gray-400 text-sm">Driven by extreme weather events of increasing frequency and severity.</p>
+                  <ul className="mt-3 space-y-1 text-sm text-gray-300">
+                    <li>• Flooding (fluvial, pluvial, coastal)</li>
+                    <li>• Tropical cyclones & extreme wind</li>
+                    <li>• Wildfires</li>
+                    <li>• Hailstorms & freezing rain</li>
+                    <li>• Extreme heat events</li>
+                  </ul>
+                </div>
+                <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Zap className="w-4 h-4 text-blue-400" />
+                    <p className="text-blue-400 font-semibold text-sm">Chronic Risks</p>
+                  </div>
+                  <p className="text-gray-400 text-sm">Driven by longer-term shifts in climate patterns.</p>
+                  <ul className="mt-3 space-y-1 text-sm text-gray-300">
+                    <li>• Sea level rise</li>
+                    <li>• Chronic heat stress (WBGT)</li>
+                    <li>• Permafrost thaw</li>
+                    <li>• Changing precipitation patterns</li>
+                    <li>• Water scarcity / drought</li>
+                  </ul>
+                </div>
               </div>
             </section>
 
-            {/* Section 4 */}
+            {/* 2 */}
             <section>
-              <h2 className="text-xl font-bold text-white mb-3">Step-by-Step Calculation Methodology</h2>
-              <p>
-                Whether you&apos;re using specialist software or building your own model, the core methodology follows the same six steps:
-              </p>
-              <ol className="space-y-5 mt-5">
+              <h2 className="text-2xl font-bold text-white mb-4">2. The Four-Step Assessment Framework</h2>
+              <p>Regardless of which model or tool you use, all physical risk assessments follow this core logic:</p>
+
+              <ol className="mt-5 space-y-5">
                 {[
-                  ['Define your asset universe', 'List all assets, operations, or portfolio holdings you want to assess. For each, capture location (lat/long or postcode), asset type, approximate replacement value, and revenue/operational dependency.'],
-                  ['Select relevant climate hazards', 'Not all hazards are relevant to all assets. Prioritise based on geography: coastal assets → sea level rise + storm surge; inland assets → fluvial flooding + heat; agricultural operations → drought + precipitation changes.'],
-                  ['Choose scenarios and time horizons', 'Minimum: run SSP2-4.5 (intermediate) and SSP5-8.5 (worst case) at 2030, 2050, and 2080. This gives you a short, medium, and long-term view and satisfies TCFD/ISSB requirements for at least two scenarios.'],
-                  ['Source hazard data', 'Use CMIP6/ERA5 for climate projections, national flood maps (e.g., UK Environment Agency, FEMA in the US), or commercial hazard datasets. For each asset-hazard pair, obtain projected hazard intensity (e.g., flood depth in metres, °C above baseline).'],
-                  ['Apply vulnerability functions', 'Vulnerability (or damage) functions translate hazard intensity into a percentage of asset value damaged. Example: a 0.5m flood event may damage 15% of a ground-floor commercial building. HAZUS (US), JRC (EU), and CLIMADA each provide standardised damage curves by asset class.'],
-                  ['Translate to financial impact', 'Multiply asset replacement value × damage fraction to estimate direct damage costs. Also model indirect impacts: revenue loss during recovery, increased insurance premiums, CapEx for adaptation measures, and supply chain disruption costs.'],
-                ].map(([title, desc], i) => (
-                  <li key={i} className="flex gap-4">
-                    <span className="w-7 h-7 rounded-full bg-primary/30 border border-primary/40 text-accent font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+                  {
+                    n: '01', title: 'Hazard', color: 'text-red-400 bg-red-500/10 border-red-500/20',
+                    desc: 'What climate hazards are projected at a given location and time horizon? (e.g. 1-in-100-year flood probability at 2°C warming by 2050)',
+                  },
+                  {
+                    n: '02', title: 'Exposure', color: 'text-orange-400 bg-orange-500/10 border-orange-500/20',
+                    desc: 'Are your assets, operations, or supply chain nodes located where those hazards occur? (e.g. factory on floodplain within 100m of river)',
+                  },
+                  {
+                    n: '03', title: 'Vulnerability', color: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20',
+                    desc: 'How sensitive is the asset to the hazard, and how adaptive is the organisation? (e.g. ground-floor electrical equipment vs elevated plant)',
+                  },
+                  {
+                    n: '04', title: 'Financial Impact', color: 'text-accent bg-primary/10 border-primary/20',
+                    desc: 'What is the expected financial loss — direct damage, business interruption, supply chain disruption, stranded assets? Expressed as Expected Annual Loss (EAL).',
+                  },
+                ].map((step) => (
+                  <li key={step.n} className={`flex gap-4 p-4 rounded-xl border ${step.color.split(' ').slice(1).join(' ')}`}>
+                    <span className={`text-2xl font-black ${step.color.split(' ')[0]} flex-shrink-0 w-10 text-center`}>{step.n}</span>
                     <div>
-                      <p className="text-white font-semibold text-sm">{title}</p>
-                      <p className="text-gray-400 text-sm mt-1">{desc}</p>
+                      <p className="text-white font-bold text-base mb-1">{step.title}</p>
+                      <p className="text-gray-400 text-sm">{step.desc}</p>
                     </div>
                   </li>
                 ))}
               </ol>
             </section>
 
-            {/* Section 5 */}
+            {/* 3 — Models */}
             <section>
-              <h2 className="text-xl font-bold text-white mb-3">Can You Do It in Excel? Yes — Here&apos;s How</h2>
-              <p>
-                Full probabilistic modelling requires Python or GIS software — but a <strong className="text-white">semi-quantitative Excel model</strong> is entirely achievable and acceptable for many disclosure contexts, particularly for first-time assessments or SMEs.
+              <h2 className="text-2xl font-bold text-white mb-4">3. Available Models & Data Sources</h2>
+              <p className="mb-5">
+                The quality of your physical risk assessment depends heavily on the climate data and models you use. Here is a structured overview from free/open-source to enterprise-grade:
               </p>
 
-              <h3 className="text-lg font-bold text-white mt-6 mb-3">Excel Model Structure</h3>
-              <div className="grid grid-cols-1 gap-3 mt-2">
-                {[
-                  ['Tab 1: Asset Register', 'List each asset with: Name, Location (country/region), Asset Type, Replacement Value (£), Annual Revenue Dependent (£)'],
-                  ['Tab 2: Hazard Exposure Matrix', 'For each asset × hazard combination (e.g., Facility A × Flood), assign an exposure score (1–5) based on publicly available hazard maps or qualitative judgement. Repeat for each scenario (Current, 2030, 2050, 2080).'],
-                  ['Tab 3: Vulnerability Scoring', 'Assign a vulnerability score (1–5) per asset × hazard based on building type, age, adaptive capacity (e.g., flood barriers, elevated foundations). This is your &quot;sensitivity&quot; layer.'],
-                  ['Tab 4: Risk Score & Financial Proxy', 'Risk Score = Exposure × Vulnerability. Map risk scores to damage ranges (e.g., Low = 0–2% of asset value, Medium = 3–10%, High = 11–30%, Very High = >30%). Multiply by asset value to get an estimated financial impact range per scenario and time horizon.'],
-                  ['Tab 5: Summary Dashboard', 'Aggregate risk scores by asset, business unit, scenario, and time horizon. Highlight highest-risk asset × hazard combinations. This becomes your TCFD disclosure table.'],
-                ].map(([title, desc], i) => (
-                  <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                    <p className="text-accent font-semibold text-sm mb-1">{title}</p>
-                    <p className="text-gray-400 text-sm" dangerouslySetInnerHTML={{ __html: desc }} />
-                  </div>
-                ))}
-              </div>
-
-              <h3 className="text-lg font-bold text-white mt-7 mb-3">Excel vs. Specialist Tools: When to Use Each</h3>
-              <div className="overflow-x-auto mt-2">
+              <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
                     <tr className="border-b border-white/20">
-                      <th className="text-left py-2 pr-4 text-gray-400 font-medium">Situation</th>
-                      <th className="text-left py-2 text-gray-400 font-medium">Recommended Approach</th>
+                      <th className="text-left py-3 pr-4 text-gray-400 font-semibold">Model / Source</th>
+                      <th className="text-left py-3 pr-4 text-gray-400 font-semibold">Type</th>
+                      <th className="text-left py-3 pr-4 text-gray-400 font-semibold">Best For</th>
+                      <th className="text-left py-3 text-gray-400 font-semibold">Cost</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
-                    <tr>
-                      <td className="py-2.5 pr-4 text-gray-300 text-xs">First-time TCFD/ISSB assessment, &lt;50 assets</td>
-                      <td className="py-2.5 text-green-400 text-xs">Excel semi-quantitative model ✓</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-gray-300 text-xs">Regulatory submission (CSRD, UK SDR) requiring audit trail</td>
-                      <td className="py-2.5 text-green-400 text-xs">Excel with referenced data sources ✓</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-gray-300 text-xs">Large portfolio (&gt;500 assets), high precision needed</td>
-                      <td className="py-2.5 text-blue-400 text-xs">Python / CLIMADA / commercial platform</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-gray-300 text-xs">Financial institution with loan book or real estate portfolio</td>
-                      <td className="py-2.5 text-blue-400 text-xs">Commercial data provider (Jupiter, Moody&apos;s)</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2.5 pr-4 text-gray-300 text-xs">Need probabilistic loss exceedance curves</td>
-                      <td className="py-2.5 text-blue-400 text-xs">CLIMADA or actuarial modelling</td>
-                    </tr>
+                    {[
+                      ['IPCC AR6 / SSP Scenarios', 'Global climate scenarios', 'Scenario selection, temperature & precipitation projections', 'Free'],
+                      ['NGFS Physical Risk Scenarios', 'Finance-sector scenarios', 'TCFD / ISSB S2 financial risk translation', 'Free'],
+                      ['CLIMADA (ETH Zurich)', 'Open-source risk platform', 'Multi-hazard EAL modelling for assets globally', 'Free (Python)'],
+                      ['NASA NEX-GDDP-CMIP6', 'Downscaled climate data', 'Grid-level temperature & precipitation projections', 'Free'],
+                      ['NOAA / Copernicus ERA5', 'Historical climate data', 'Baseline hazard calibration', 'Free'],
+                      ['XDI Cross Dependency Index', 'Asset-level risk scores', 'Portfolio screening, bulk asset analysis', 'Commercial'],
+                      ['Jupiter Intelligence', 'Asset-level risk scores', 'Real estate, infrastructure, financial services', 'Commercial'],
+                      ['Four Twenty Seven (Moody\'s)', 'Asset-level risk scores', 'Investment-grade location risk data', 'Commercial'],
+                      ['Munich Re / Swiss Re tools', 'Catastrophe models', 'Insurance underwriting, NatCat EAL', 'Commercial'],
+                    ].map(([name, type, use, cost]) => (
+                      <tr key={name}>
+                        <td className="py-3 pr-4 text-white font-medium">{name}</td>
+                        <td className="py-3 pr-4 text-gray-400">{type}</td>
+                        <td className="py-3 pr-4 text-gray-400">{use}</td>
+                        <td className={`py-3 font-semibold ${cost === 'Free' ? 'text-accent' : 'text-orange-400'}`}>{cost}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
+
+              <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+                <p className="text-blue-300 text-sm font-semibold mb-1">💡 Which scenario should you use?</p>
+                <p className="text-gray-400 text-sm">
+                  For TCFD/ISSB S2 compliance, assess at minimum two contrasting scenarios: a <strong className="text-white">low warming scenario</strong> (SSP1-2.6 or NGFS "Net Zero 2050") and a <strong className="text-white">high warming scenario</strong> (SSP5-8.5 or NGFS "Current Policies"). This captures both transition and physical risk trade-offs.
+                </p>
+              </div>
             </section>
 
-            {/* Section 6 */}
+            {/* 4 — Excel */}
             <section>
-              <h2 className="text-xl font-bold text-white mb-3">From Excel to Advanced Modelling</h2>
-              <p>
-                Excel is a great starting point — but many organisations quickly hit its limits: manual data entry, lack of spatial resolution, no Monte Carlo simulation, and difficulty automating scenario updates. The natural progression is:
+              <h2 className="text-2xl font-bold text-white mb-2">4. Can You Calculate Physical Climate Risk in Excel?</h2>
+              <p className="text-accent font-semibold text-lg mb-4">Yes — and here's exactly how.</p>
+              <p className="mb-6">
+                For organisations without a dedicated risk platform budget, a well-structured Excel model can produce a credible, TCFD-aligned physical risk assessment. It won't match the resolution of CLIMADA or XDI, but it is sufficient for initial screening, board reporting, and regulatory disclosure narratives.
               </p>
-              <div className="grid grid-cols-1 gap-3 mt-5">
+
+              <div className="space-y-6">
                 {[
-                  ['Stage 1: Excel (Qualitative / Semi-Quantitative)', 'Manual hazard scoring, risk matrix, financial proxy ranges. Suitable for first assessments and narrative disclosures.'],
-                  ['Stage 2: Python + Open Data (Quantitative)', 'Use CLIMADA or custom scripts with CMIP6/ERA5 data to generate asset-level hazard intensities and apply damage functions. Automate scenario comparison.'],
-                  ['Stage 3: AI-Augmented Modelling', 'Use tools like Claude Code to automate data ingestion, generate scenario narratives, build interactive dashboards, and produce TCFD/ISSB-ready output reports from your model outputs — in a fraction of the time.'],
-                  ['Stage 4: Commercial Platform Integration', 'For large portfolios or regulatory-grade outputs, integrate commercial hazard data APIs (Jupiter, Moody\'s) into automated reporting pipelines.'],
-                ].map(([title, desc], i) => (
-                  <div key={i} className="flex gap-4">
-                    <span className="w-7 h-7 rounded-full bg-primary/30 border border-primary/40 text-accent font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex-1">
-                      <p className="text-white font-semibold text-sm mb-1">{title}</p>
-                      <p className="text-gray-400 text-sm">{desc}</p>
+                  {
+                    step: 'Step 1', title: 'Build Your Asset Register',
+                    content: `Create a structured list of all assets (or business operations) to be assessed. For each asset include: Name, Location (lat/long or postcode), Asset type (building, plant, warehouse, data centre), Replacement value (£), Annual revenue contribution (£), Key dependencies (water, electricity, road access).`,
+                    tip: 'Tip: Start with your top 10 highest-value or highest-revenue assets. Cover >80% of portfolio value.',
+                  },
+                  {
+                    step: 'Step 2', title: 'Select Scenarios & Time Horizons',
+                    content: `Define three rows per asset: Short-term (2030), Medium-term (2050), Long-term (2100). For each time horizon, apply two scenarios: SSP2-4.5 (intermediate, 2–3°C) and SSP5-8.5 (high-end, 4–5°C). Download scenario data from NASA NEX-GDDP-CMIP6 or use the IPCC AR6 Interactive Atlas.`,
+                    tip: 'Tip: The IPCC AR6 WGI Interactive Atlas (interactive-atlas.ipcc.ch) lets you download gridded temperature and precipitation data by region at no cost.',
+                  },
+                  {
+                    step: 'Step 3', title: 'Score Hazard Exposure (0–5 scale)',
+                    content: `For each hazard type (flooding, heat, drought, sea level rise, wildfire, wind), assign an exposure score (0 = not exposed, 5 = very high exposure) using: Distance from flood zone or coastline, Historical event frequency from NOAA or EM-DAT, Projected change in hazard intensity from your chosen scenario. Multiply by a confidence weight (0.6–1.0) based on data quality.`,
+                    tip: null,
+                  },
+                  {
+                    step: 'Step 4', title: 'Assign Vulnerability Factors',
+                    content: `Vulnerability reflects how much damage the hazard causes given exposure. Use a vulnerability factor (VF) from 0.0 to 1.0 based on: Asset construction type (e.g. steel frame = low VF vs. unreinforced masonry = high VF), Elevation above flood level, Existing adaptation measures (flood barriers, cooling systems), Business continuity planning maturity. Source: IPCC WGII AR6 Chapter 17 provides sector-level vulnerability multipliers.`,
+                    tip: null,
+                  },
+                  {
+                    step: 'Step 5', title: 'Calculate Expected Annual Loss (EAL)',
+                    content: null,
+                    formula: true,
+                    tip: 'P = Annual exceedance probability of the hazard event (e.g. 1% for 1-in-100-year flood). Severity = physical damage ratio (e.g. 0.3 = 30% of asset value damaged). This can be summed across multiple hazard types.',
+                  },
+                  {
+                    step: 'Step 6', title: 'Discount EAL to NPV Across Time Horizon',
+                    content: `Apply a discount rate (typically 3–7% for infrastructure) to translate future EAL values to present value. This enables comparison with adaptation investment costs — a key TCFD requirement. Sum discounted EAL across your time horizon to get Total Physical Risk Exposure (£) per asset.`,
+                    tip: null,
+                  },
+                  {
+                    step: 'Step 7', title: 'Aggregate, Rank & Disclose',
+                    content: `Rank assets by Total Physical Risk Exposure. Identify the top 3–5 "hotspot" assets and 1–2 "critical" hazard types. Produce a heat map matrix (hazard type vs. time horizon) for board-level reporting. This output directly feeds your TCFD Physical Risk disclosure (Strategy section) and ISSB S2 paragraph 25 requirements.`,
+                    tip: null,
+                  },
+                ].map((item) => (
+                  <div key={item.step} className="bg-surface border border-white/10 rounded-xl p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-xs font-bold text-accent bg-primary/20 border border-primary/30 px-2.5 py-1 rounded-full">{item.step}</span>
+                      <h3 className="text-white font-bold text-base">{item.title}</h3>
+                    </div>
+                    {item.content && <p className="text-gray-400 text-sm leading-relaxed">{item.content}</p>}
+                    {item.formula && (
+                      <div className="bg-dark border border-white/10 rounded-lg p-4 mt-2 font-mono text-sm text-center">
+                        <span className="text-accent font-bold">EAL = P × Severity × Asset Value</span>
+                      </div>
+                    )}
+                    {item.tip && (
+                      <div className="mt-3 p-3 bg-primary/10 border border-primary/20 rounded-lg">
+                        <p className="text-accent text-xs">{item.tip}</p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* 5 — Limitations */}
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-4">5. Limitations of the Excel Approach</h2>
+              <p className="mb-4">An Excel model is a strong starting point but has real constraints. Know when to upgrade:</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { limit: 'Large portfolios (100+ assets)', fix: 'Use CLIMADA (Python) or XDI for bulk processing' },
+                  { limit: 'High spatial resolution needed', fix: 'Commercial tools offer 90m–1km grid resolution vs. regional Excel estimates' },
+                  { limit: 'Multi-hazard compound events', fix: 'CLIMADA handles correlated hazards; Excel cannot easily' },
+                  { limit: 'Regulatory audit trail required', fix: 'Enterprise platforms provide documented methodology and data provenance' },
+                  { limit: 'Real-time updating', fix: 'Platforms auto-update with new CMIP6 runs; Excel requires manual refresh' },
+                  { limit: 'Board-ready automated outputs', fix: 'Dedicated tools generate disclosure-ready reports automatically' },
+                ].map((row) => (
+                  <div key={row.limit} className="flex gap-3 p-4 bg-dark border border-white/10 rounded-xl">
+                    <AlertTriangle className="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-white text-sm font-semibold">{row.limit}</p>
+                      <p className="text-gray-500 text-xs mt-1">{row.fix}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <p className="mt-5 text-gray-400 text-sm">
-                The good news: you don&apos;t need to jump from Excel to a full GIS platform overnight. Each stage builds on the last, and <strong className="text-white">AI-assisted tooling makes Stage 3 accessible even without a data science background</strong> — which is exactly what our courses cover.
+            </section>
+
+            {/* 6 — AI */}
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-4">6. The Next Level: Automating Physical Risk with AI</h2>
+              <p>
+                Beyond Excel, AI tools like <strong className="text-white">Claude Code</strong> can be used to automate the entire physical risk pipeline — from pulling NASA NEX-GDDP data via API, to running CLIMADA hazard modules in Python, to generating a formatted TCFD disclosure narrative. What took a consultant two weeks can run in hours.
               </p>
+              <p className="mt-4">
+                This is exactly what the <strong className="text-white">Claude Code for Climate Risk & ESG Reporting</strong> course covers — real, project-based workflows that automate GHG calculations, climate risk screening, and ESG dashboard generation using AI agents.
+              </p>
+            </section>
+
+            {/* Inline CTA */}
+            <div className="p-6 bg-gradient-to-r from-blue-900/40 to-primary/20 border border-blue-500/20 rounded-2xl">
+              <div className="flex items-start gap-3">
+                <BookOpen className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-white font-bold text-base mb-1">Want to go deeper with hands-on practice?</p>
+                  <p className="text-gray-400 text-sm mb-4">
+                    The <strong className="text-white">Climate Risk Masterclass</strong> on BTW Academy walks through physical and transition risk modelling end-to-end — including real Excel models, TCFD alignment, ISSB S2 mapping, and NGFS scenario narratives.
+                  </p>
+                  <Link
+                    href="/academy"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                  >
+                    View Climate Risk Masterclass
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* 7 — Key takeaways */}
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-4">7. Key Takeaways</h2>
+              <ul className="space-y-3">
+                {[
+                  'Physical climate risk = Hazard × Exposure × Vulnerability — always start with this equation.',
+                  'Use IPCC AR6 SSP scenarios (at minimum SSP2-4.5 and SSP5-8.5) across 2030, 2050, and 2100 time horizons.',
+                  'CLIMADA (free, Python) is the most powerful open-source tool for quantitative EAL modelling.',
+                  'Excel modelling is credible for initial screening and regulatory disclosure narratives — use the 7-step EAL framework above.',
+                  'ISSB S2 and CSRD E1 require quantitative scenario analysis with financial impact estimates — not just qualitative narrative.',
+                  'AI tools like Claude Code can automate the entire pipeline from data ingestion to disclosure drafting.',
+                ].map((pt, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-300 text-sm">{pt}</span>
+                  </li>
+                ))}
+              </ul>
             </section>
 
           </div>
 
-          {/* CTA — Primary: Climate Risk Masterclass */}
-          <div className="mt-12 p-6 bg-gradient-to-r from-blue-600/20 to-cyan-600/10 border border-blue-500/20 rounded-2xl">
-            <div className="flex items-start gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                <BookOpen className="w-5 h-5 text-blue-400" />
+          {/* Course CTA Box */}
+          <div className="mt-12 p-7 bg-gradient-to-br from-primary/20 via-surface to-secondary/10 border border-primary/30 rounded-2xl">
+            <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-2">Ready to Master This?</p>
+            <h3 className="text-white font-bold text-xl mb-3 leading-snug">
+              Turn This Knowledge Into a Career-Defining Skill
+            </h3>
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              BTW Academy offers two courses that take you from understanding to execution — with real models, real data, and real deliverables you can use immediately in client or employer contexts.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+              <div className="bg-dark/60 border border-white/10 rounded-xl p-4">
+                <p className="text-white font-bold text-sm mb-1">🌍 Climate Risk Masterclass</p>
+                <p className="text-gray-400 text-xs leading-relaxed mb-3">Physical & transition risk, NGFS scenarios, TCFD/ISSB S2 alignment, financial impact quantification — full Excel models included.</p>
+                <Link href="/academy" className="inline-flex items-center gap-1.5 text-accent text-xs font-semibold hover:text-accent/80 transition-colors">
+                  Enroll Now <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
-              <div>
-                <p className="text-white font-bold text-lg leading-tight">Climate Risk Masterclass</p>
-                <p className="text-blue-400 text-sm font-medium">Assessment &amp; Management — £150</p>
+              <div className="bg-dark/60 border border-white/10 rounded-xl p-4">
+                <p className="text-white font-bold text-sm mb-1">🤖 Claude Code for Climate Risk & ESG</p>
+                <p className="text-gray-400 text-xs leading-relaxed mb-3">Automate physical risk pipelines, ESG reporting, and dashboard generation using AI agents. No prior coding experience required.</p>
+                <Link href="/academy" className="inline-flex items-center gap-1.5 text-accent text-xs font-semibold hover:text-accent/80 transition-colors">
+                  Enroll Now <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
             </div>
-            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              Want to go deeper than this article? Our <strong className="text-white">Climate Risk Masterclass</strong> teaches you the complete framework — from hazard identification and NGFS scenario modelling, to financial impact quantification, TCFD/ISSB alignment, and building your own Excel and Python-based risk models. Everything covered in this guide, and much more, taught with real-world examples.
-            </p>
-            <ul className="text-gray-400 text-sm space-y-1.5 mb-5 list-disc list-inside">
-              <li>Physical &amp; transition risk deep-dive with worked examples</li>
-              <li>Scenario modelling using NGFS and SSP pathways</li>
-              <li>Step-by-step Excel physical risk model walkthrough</li>
-              <li>Financial impact assessment (asset damage, revenue, CapEx)</li>
-              <li>TCFD &amp; ISSB S2 aligned disclosure templates</li>
-            </ul>
-            <a
-              href="https://buy.stripe.com/9B63cvbM1dZ36344llgYU0d"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors text-sm"
-            >
-              <BookOpen className="w-4 h-4" />
-              Enrol in the Climate Risk Masterclass — £150
-            </a>
-          </div>
 
-          {/* CTA — Secondary: Claude Code for ESG */}
-          <div className="mt-5 p-6 bg-gradient-to-r from-purple-600/20 to-violet-600/10 border border-purple-500/20 rounded-2xl">
-            <div className="flex items-start gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                <Bot className="w-5 h-5 text-purple-400" />
-              </div>
-              <div>
-                <p className="text-white font-bold text-lg leading-tight">Claude Code for Climate Risk &amp; ESG Reporting</p>
-                <p className="text-purple-400 text-sm font-medium">AI-Powered Modelling — £100</p>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/academy"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-700 transition-all duration-200 hover:scale-105 text-sm"
+              >
+                Browse All BTW Academy Courses
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href={TOPMATE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/20 text-white font-semibold rounded-xl hover:border-primary/50 transition-all duration-200 text-sm"
+              >
+                Book a 1:1 Consultation
+              </a>
             </div>
-            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              Ready to move beyond Excel? This course shows you how to use <strong className="text-white">Claude Code</strong> to automate your physical climate risk model — ingesting hazard data, running scenario comparisons, building interactive dashboards, and generating TCFD-ready reports. No prior coding experience required.
-            </p>
-            <ul className="text-gray-400 text-sm space-y-1.5 mb-5 list-disc list-inside">
-              <li>Automate the Excel model from this guide using AI</li>
-              <li>Build a physical climate risk dashboard in hours</li>
-              <li>Generate TCFD narrative outputs automatically</li>
-              <li>Prompt engineering techniques for ESG &amp; climate data</li>
-              <li>Real project-based learning with ESG deliverables</li>
-            </ul>
-            <a
-              href="https://buy.stripe.com/cNi7sLaHX7AFezA3hhgYU0e"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-500 transition-colors text-sm"
-            >
-              <Bot className="w-4 h-4" />
-              Enrol in Claude Code for ESG Reporting — £100
-            </a>
-          </div>
-
-          {/* Closing nudge */}
-          <div className="mt-5 p-4 bg-white/5 border border-white/10 rounded-xl">
-            <p className="text-gray-400 text-sm text-center">
-              Not sure which course to start with?{' '}
-              <Link href="/contact" className="text-accent hover:underline">
-                Book a free 15-minute chat
-              </Link>{' '}
-              and we&apos;ll recommend the right path for your role and goals.
-            </p>
           </div>
 
           {/* Nav */}
           <div className="mt-8 pt-8 border-t border-white/10 flex items-center justify-between">
-            <Link href="/resources/article-3" className="inline-flex items-center gap-1.5 text-gray-500 hover:text-accent text-sm transition-colors">
-              <ArrowLeft className="w-4 h-4" />
-              Climate Risk Basics
-            </Link>
             <Link href="/resources" className="inline-flex items-center gap-1.5 text-gray-500 hover:text-accent text-sm transition-colors">
+              <ArrowLeft className="w-4 h-4" />
               All Resources
+            </Link>
+            <Link href="/resources/article-3" className="inline-flex items-center gap-1.5 text-gray-500 hover:text-accent text-sm transition-colors">
+              Climate Risk Basics
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

@@ -31,6 +31,16 @@ export const resources: Resource[] = [
     link: '/resources/article-2',
   },
   {
+    id: 4,
+    title: 'How to Calculate Physical Climate Risk: Models, Methods & Excel',
+    description: 'A practitioner guide covering acute vs chronic hazards, IPCC AR6 / NGFS scenario models, CLIMADA, and a step-by-step Excel Expected Annual Loss (EAL) methodology for TCFD and ISSB S2 compliance.',
+    type: 'guide',
+    date: '2026-03-30',
+    readTime: '15 min read',
+    tags: ['Physical Risk', 'Climate Models', 'TCFD', 'Excel', 'IPCC AR6', 'ISSB S2'],
+    link: '/resources/article-4',
+  },
+  {
     id: 3,
     title: 'Climate Risk Basics: TCFD and Scenario Analysis Explained',
     description: 'An introduction to climate risk assessment — covering physical risks, transition risks, scenario analysis, and how to disclose climate risk aligned with the TCFD framework.',

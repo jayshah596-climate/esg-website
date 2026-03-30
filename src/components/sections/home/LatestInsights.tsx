@@ -7,11 +7,11 @@ const articles = [
   {
     badge: 'Guide' as const,
     badgeColor: 'green' as const,
-    readTime: '12 min read',
-    title: 'CSRD Simplified: A Practical Guide for Businesses',
-    description: 'The EU\'s Corporate Sustainability Reporting Directive explained — who is in scope, what ESRS disclosures are required, and 5 steps to get ready.',
-    tags: ['CSRD', 'ESRS', 'Double Materiality'],
-    href: '/resources/article-1',
+    readTime: '15 min read',
+    title: 'How to Calculate Physical Climate Risk: Models, Methods & Excel',
+    description: 'IPCC AR6, NGFS scenarios, CLIMADA, and a step-by-step Excel EAL model — a complete practitioner guide to quantifying physical climate risk for TCFD & ISSB S2.',
+    tags: ['Physical Risk', 'TCFD', 'Excel', 'IPCC AR6'],
+    href: '/resources/article-4',
   },
   {
     badge: 'Article' as const,
