@@ -269,7 +269,7 @@ export const products: Product[] = [
     badge: 'NEW',
     category: 'AI Agent',
     format: 'AI Agent',
-    stripeLink: 'https://buy.stripe.com/7sYfZh2br8EJdvwg43gYU0g',
+    stripeLink: 'https://buy.stripe.com/eVqdR97vL7AF4Z0g43gYU0h',
     limitedPricing: false,
     image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=300&fit=crop&auto=format&q=80',
   },
