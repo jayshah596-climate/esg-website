@@ -265,7 +265,7 @@ export const products: Product[] = [
       'Green space and infrastructure investment projections',
       'Outputs: Word report + Excel data export',
     ],
-    price: '£50',
+    price: '£5',
     badge: 'NEW',
     category: 'AI Agent',
     format: 'AI Agent',
