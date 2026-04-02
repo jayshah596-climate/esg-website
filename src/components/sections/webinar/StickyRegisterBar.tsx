@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Zap } from 'lucide-react'
 
-const REGISTER_URL = '#register'
+const REGISTER_URL = 'https://buy.stripe.com/fZuaEX5nDcUZ3UWeZZgYU0i'
 
 export function StickyRegisterBar() {
   const [visible, setVisible] = useState(false)

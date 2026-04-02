@@ -121,7 +121,9 @@ export default function WebinarPage() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <a
-                href="#register"
+                href="https://buy.stripe.com/fZuaEX5nDcUZ3UWeZZgYU0i"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/80 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-secondary/30 text-base"
               >
                 Reserve Your Spot Now
@@ -513,7 +515,9 @@ export default function WebinarPage() {
 
               {/* CTA button */}
               <a
-                href="#"
+                href="https://buy.stripe.com/fZuaEX5nDcUZ3UWeZZgYU0i"
+                target="_blank"
+                rel="noopener noreferrer"
                 id="register-btn"
                 className="flex items-center justify-center w-full bg-secondary hover:bg-secondary/80 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-secondary/30 text-base"
               >
@@ -625,7 +629,9 @@ export default function WebinarPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
-                href="#"
+                href="https://buy.stripe.com/fZuaEX5nDcUZ3UWeZZgYU0i"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/80 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg shadow-secondary/30 text-base"
               >
                 Reserve Your Spot Now – Only £5 →
