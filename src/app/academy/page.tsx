@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { CheckCircle, Lock, Star, Zap, BookOpen, TrendingUp, Bot } from 'lucide-react'
+import Link from 'next/link'
+import { CheckCircle, Lock, Star, Zap, BookOpen, TrendingUp, Bot, Radio, ChevronRight } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 import { CurrencyPrice } from '@/components/ui/CurrencyPrice'
 import { CurrencyBadge } from '@/components/widgets/CurrencyBadge'
@@ -180,6 +181,61 @@ export default function AcademyPage() {
               )
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Upcoming Webinars */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-surface border-y border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 text-secondary text-sm font-medium px-4 py-2 rounded-full mb-4">
+              <Radio className="w-4 h-4" />
+              Live Webinars
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              Upcoming{' '}
+              <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
+                Webinars
+              </span>
+            </h2>
+            <p className="text-gray-400 mt-2">Live interactive sessions with expert-led demonstrations</p>
+          </div>
+
+          {/* Webinar card */}
+          <Link href="/academy/webinars/ai-masterclass-beginners" className="block group">
+            <div className="bg-dark border border-secondary/20 hover:border-secondary/50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start md:items-center transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/10 hover:-translate-y-1">
+              {/* Date badge */}
+              <div className="flex-shrink-0 bg-secondary/10 border border-secondary/20 rounded-xl p-4 text-center min-w-[80px]">
+                <p className="text-secondary text-xs font-semibold uppercase tracking-wider">Apr</p>
+                <p className="text-white text-3xl font-bold leading-none my-1">11</p>
+                <p className="text-gray-400 text-xs">2026</p>
+              </div>
+
+              {/* Info */}
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <Badge variant="blue">Live Webinar</Badge>
+                  <Badge variant="orange">NEW</Badge>
+                  <span className="text-gray-500 text-xs">· 2 Hrs + Q&amp;A</span>
+                </div>
+                <h3 className="text-white font-bold text-lg md:text-xl leading-snug group-hover:text-secondary transition-colors mb-2">
+                  AI Masterclass for Beginners: Learn ChatGPT, Claude, Gemini &amp; Perplexity
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  Sat 11 Apr · 2:00 PM IST / 8:30 AM UK · No tech background needed
+                </p>
+              </div>
+
+              {/* Price + CTA */}
+              <div className="flex-shrink-0 text-center md:text-right">
+                <CurrencyPrice gbp={5} className="text-2xl font-bold text-secondary" />
+                <p className="text-gray-500 text-xs mt-0.5">≈ ₹499</p>
+                <div className="mt-3 inline-flex items-center gap-1 bg-secondary hover:bg-secondary/80 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 group-hover:scale-105">
+                  Register Now <ChevronRight className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 
