@@ -13,11 +13,11 @@ import { StickyRegisterBar } from '@/components/sections/webinar/StickyRegisterB
 
 export const metadata: Metadata = {
   title: 'AI Masterclass for Beginners – Learn ChatGPT, Claude, Gemini & Perplexity | BTW Academy',
-  description: 'Join our live online AI Masterclass on Saturday 11 April 2026. Learn ChatGPT, Claude, Gemini & Perplexity in 2 hours. No tech background needed. Only £5 / ₹499.',
+  description: 'Join our live online AI Masterclass on Sunday 19 April 2026. Learn ChatGPT, Claude, Gemini & Perplexity in 2 hours. No tech background needed. Only £5 / ₹499.',
   keywords: ['AI Masterclass', 'Learn ChatGPT', 'AI for Beginners UK', 'AI Workshop 2026', 'ChatGPT training', 'Claude AI tutorial', 'Gemini AI', 'Perplexity AI', 'AI productivity'],
   openGraph: {
     title: 'AI Masterclass for Beginners – Learn ChatGPT, Claude & More',
-    description: 'Live online webinar. Saturday 11 April 2026. No tech background needed. Only £5.',
+    description: 'Live online webinar. Sunday 19 April 2026. No tech background needed. Only £5.',
     type: 'website',
   },
 }
@@ -26,8 +26,8 @@ const eventSchema = {
   '@context': 'https://schema.org',
   '@type': 'Event',
   name: 'AI Masterclass for Beginners: Learn ChatGPT, Claude, Gemini & Perplexity in 60 Minutes',
-  startDate: '2026-04-11T08:30:00+00:00',
-  endDate: '2026-04-11T10:30:00+00:00',
+  startDate: '2026-04-19T08:30:00+00:00',
+  endDate: '2026-04-19T10:30:00+00:00',
   eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
   eventStatus: 'https://schema.org/EventScheduled',
   location: {
@@ -75,7 +75,7 @@ export default function WebinarPage() {
             {/* Top badge */}
             <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 text-secondary text-sm font-medium px-4 py-2 rounded-full mb-6">
               <Zap className="w-4 h-4" />
-              Live Online Webinar · 11 April 2026
+              Live Online Webinar · 19 April 2026
             </div>
 
             {/* H1 */}
@@ -96,7 +96,7 @@ export default function WebinarPage() {
             <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-300">
               <span className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-secondary" />
-                Saturday, 11 April 2026
+                Sunday, 19 April 2026
               </span>
               <span className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-secondary" />
@@ -551,7 +551,7 @@ export default function WebinarPage() {
             <div className="flex justify-center gap-4 flex-wrap">
               {/* WhatsApp */}
               <a
-                href="https://wa.me/?text=Join%20me%20at%20this%20AI%20Masterclass%20for%20Beginners%20by%20BTW%20Academy%21%20Learn%20ChatGPT%2C%20Claude%20%26%20more%20in%202%20hours%20for%20just%20%C2%A35.%20Saturday%2011%20April%202026%3A%20https%3A%2F%2Fbtw-ai.site%2Facademy%2Fwebinars%2Fai-masterclass-beginners"
+                href="https://wa.me/?text=Join%20me%20at%20this%20AI%20Masterclass%20for%20Beginners%20by%20BTW%20Academy%21%20Learn%20ChatGPT%2C%20Claude%20%26%20more%20in%202%20hours%20for%20just%20%C2%A35.%20Sunday%2019%20April%202026%3A%20https%3A%2F%2Fbtw-ai.site%2Facademy%2Fwebinars%2Fai-masterclass-beginners"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1da850] text-white font-semibold px-5 py-3 rounded-xl transition-all duration-200 text-sm"
@@ -619,7 +619,7 @@ export default function WebinarPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Future-Proof Your Skills{' '}
               <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-                Starting This Saturday
+                Starting This Sunday
               </span>
             </h2>
 
