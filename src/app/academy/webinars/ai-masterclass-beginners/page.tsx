@@ -649,7 +649,7 @@ export default function WebinarPage() {
             {/* Urgency */}
             <div className="flex items-center justify-center gap-2 text-sm text-red-400 font-medium">
               <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse inline-block" />
-              Limited seats remaining — registration closes 10 April 2026
+              Limited seats remaining — registration closes 18 April 2026
             </div>
           </div>
         </section>

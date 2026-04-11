@@ -207,7 +207,7 @@ export default function AcademyPage() {
               {/* Date badge */}
               <div className="flex-shrink-0 bg-secondary/10 border border-secondary/20 rounded-xl p-4 text-center min-w-[80px]">
                 <p className="text-secondary text-xs font-semibold uppercase tracking-wider">Apr</p>
-                <p className="text-white text-3xl font-bold leading-none my-1">11</p>
+                <p className="text-white text-3xl font-bold leading-none my-1">19</p>
                 <p className="text-gray-400 text-xs">2026</p>
               </div>
 
@@ -222,7 +222,7 @@ export default function AcademyPage() {
                   AI Masterclass for Beginners: Learn ChatGPT, Claude, Gemini &amp; Perplexity
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  Sat 11 Apr · 2:00 PM IST / 8:30 AM UK · No tech background needed
+                  Sun 19 Apr · 2:00 PM IST / 8:30 AM UK · No tech background needed
                 </p>
               </div>
 

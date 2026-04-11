@@ -28,7 +28,7 @@ export function StickyRegisterBar() {
               AI Masterclass for Beginners
             </p>
             <p className="text-gray-400 text-xs">
-              Sat 11 Apr 2026 · 2:00 PM IST · <span className="text-secondary font-medium">£5 only</span>
+              Sun 19 Apr 2026 · 2:00 PM IST · <span className="text-secondary font-medium">£5 only</span>
             </p>
           </div>
           <a

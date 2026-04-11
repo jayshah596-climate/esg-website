@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: 'How will I join the webinar?',
-    a: 'After completing your registration, you will receive a confirmation email with the secure webinar link. A reminder will also be sent 1 hour before the session starts on 11 April 2026.',
+    a: 'After completing your registration, you will receive a confirmation email with the secure webinar link. A reminder will also be sent 1 hour before the session starts on 19 April 2026.',
   },
   {
     q: 'Is this session truly live?',
@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: 'Can I get a refund if I cannot attend?',
-    a: 'Yes — if you request a refund at least 48 hours before the event (by 9 April 2026), you will receive a full refund. After that point, the session recording access will be provided as an alternative.',
+    a: 'Yes — if you request a refund at least 48 hours before the event (by 17 April 2026), you will receive a full refund. After that point, the session recording access will be provided as an alternative.',
   },
   {
     q: 'What tools will be covered?',
