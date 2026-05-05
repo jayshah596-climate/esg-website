@@ -11,30 +11,6 @@ export interface TeamMember {
 
 export const team: TeamMember[] = [
   {
-    id: 1,
-    name: 'Jay Shah',
-    role: 'ESG & Climate Specialist | Co-Founder',
-    bio: 'Jay is a seasoned ESG and Climate specialist with over 9 years of experience spanning investment management, consulting, NGOs, and the public sector. He has advised corporates, municipalities, and financial institutions across Europe, Asia, and emerging markets on climate risk, net zero strategy, and sustainability reporting. Jay is passionate about bridging the gap between climate science and actionable business strategy.',
-    credentials: [
-      '9+ Years ESG & Climate Experience',
-      'Consulting | Asset Management | NGO | Public Sector',
-      'Climate Risk & Net Zero Specialist',
-      'TCFD | CSRD | SBTi Expert',
-    ],
-    expertise: [
-      'Climate Risk & Scenario Analysis',
-      'GHG Accounting (Scope 1, 2, 3)',
-      'CSRD, TCFD, ISSB, SFDR, EU Taxonomy',
-      'ESG Reporting & Double Materiality',
-      'Net Zero Strategy',
-      'Sustainable Finance (SFDR, Green Bonds)',
-      'SSP & NGFS Scenarios',
-      'Supply Chain Decarbonisation',
-    ],
-    linkedIn: 'https://www.linkedin.com/in/jay-shah-climate/',
-    image: undefined,
-  },
-  {
     id: 2,
     name: 'Zeel Shah',
     role: 'Automation Engineer | Co-Founder',

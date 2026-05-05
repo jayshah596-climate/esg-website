@@ -64,7 +64,7 @@ export function TestimonialsSection() {
             </a>
             {' '}and{' '}
             <a
-              href="https://www.linkedin.com/in/jay-shah-climate/"
+              href="https://www.linkedin.com/in/zeel-shah-ab338052/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"

@@ -232,7 +232,7 @@ export default function ResourcesPage() {
             Book a 1:1 Session or Course on Topmate
           </h2>
           <p className="text-gray-400 mb-6 max-w-xl mx-auto text-sm">
-            Access paid 1:1 consulting sessions, ESG courses, resume reviews, and personalised advisory directly on Jay Shah&apos;s Topmate profile.
+            Access paid 1:1 consulting sessions, ESG courses, resume reviews, and personalised advisory directly on our Topmate profile.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a

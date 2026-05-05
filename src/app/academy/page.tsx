@@ -250,7 +250,7 @@ export default function AcademyPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: BookOpen, title: 'Practitioner-Led', desc: 'Content created by Jay Shah — a working ESG consultant, not just an academic.' },
+              { icon: BookOpen, title: 'Practitioner-Led', desc: 'Content created by working ESG consultants — practitioners, not academics.' },
               { icon: Zap, title: 'Instantly Applicable', desc: 'Templates, tools, and frameworks you can use in your next project immediately.' },
               { icon: Star, title: 'Industry Recognised', desc: 'Aligned with GHG Protocol, TCFD, ISSB, CSRD and other global standards.' },
             ].map((item) => {

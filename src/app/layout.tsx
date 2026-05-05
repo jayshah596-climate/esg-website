@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     template: '%s | BTW AI Services',
   },
   description:
-    'Build The World AI — premium ESG, Climate & Sustainability consulting firm. Climate risk, GHG accounting, CSRD compliance, net zero strategy, and digital ESG tools. Led by Jay Shah, ESG specialist with 11+ years experience.',
+    'Build The World AI — premium ESG, Climate & Sustainability consulting firm. Climate risk, GHG accounting, CSRD compliance, net zero strategy, and digital ESG tools.',
   keywords: [
     'ESG consulting', 'climate risk', 'net zero strategy', 'GHG accounting', 'CSRD compliance',
     'TCFD', 'sustainability consulting', 'carbon footprint', 'Scope 3 emissions',
-    'double materiality', 'ESG reporting', 'BTW AI', 'Jay Shah', 'climate consulting UK',
+    'double materiality', 'ESG reporting', 'BTW AI', 'climate consulting UK',
   ],
-  authors: [{ name: 'Jay Shah', url: 'https://www.linkedin.com/in/jay-shah-climate/' }],
+  authors: [{ name: 'BTW AI Services', url: 'https://btw-ai.site' }],
   creator: 'BTW AI Services',
   openGraph: {
     type: 'website',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'BTW AI Services | Premium ESG & Climate Consulting',
-    description: 'Premium ESG, Climate & Sustainability consulting led by Jay Shah.',
+    description: 'Premium ESG, Climate & Sustainability consulting by BTW AI Services.',
   },
   robots: {
     index: true,

@@ -22,7 +22,7 @@ export function CTABanner() {
           Build a Sustainable Future — Starting Today
         </h2>
         <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-          Book a free 30-minute ESG consultation with Jay Shah and discover what's possible for your organisation.
+          Book a free 30-minute ESG consultation with our team and discover what's possible for your organisation.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a

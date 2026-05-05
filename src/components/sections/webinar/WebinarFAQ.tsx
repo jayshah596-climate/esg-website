@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: 'Is this session truly live?',
-    a: 'Yes, 100% live. Jay Shah will be presenting in real time, running live demonstrations, and answering your questions directly in the Q&A session at the end. No pre-recorded content.',
+    a: 'Yes, 100% live. The BTW Academy team will be presenting in real time, running live demonstrations, and answering your questions directly in the Q&A session at the end. No pre-recorded content.',
   },
   {
     q: 'Can I get a refund if I cannot attend?',

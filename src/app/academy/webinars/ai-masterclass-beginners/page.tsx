@@ -501,7 +501,7 @@ export default function WebinarPage() {
               {/* Included items */}
               <ul className="space-y-4 mb-8 text-left max-w-sm mx-auto">
                 {[
-                  '2-Hour Live Session with Jay Shah',
+                  '2-Hour Live Session with BTW Academy',
                   'Free AI Prompt Guide PDF (50+ prompts)',
                   'Session Recording Access (30 days)',
                   'Live Q&A — Get Your Questions Answered',

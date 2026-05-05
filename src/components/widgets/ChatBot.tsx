@@ -13,14 +13,14 @@ const quickQuestions = [
   'What services do you offer?',
   'How can I book a consultation?',
   'What are your product prices?',
-  'Tell me about Jay Shah',
+  'Tell me about BTW AI',
 ]
 
 const botResponses: Record<string, string> = {
   'what services do you offer': `We offer 8 core ESG & Climate services:\n\n• ESG Reporting & Compliance (CSRD, ISSB, TCFD, GRI)\n• Climate Risk & Scenario Analysis\n• GHG Emissions Accounting (Scope 1, 2, 3)\n• Net Zero Strategy & Decarbonisation\n• Sustainable Finance Advisory\n• Climate Data & Dashboard Solutions\n• Supply Chain (Scope 3) Analysis\n• Double Materiality Assessment\n\nVisit our Services page to learn more!`,
   'how can i book a consultation': `Booking is easy! You have 3 options:\n\n1. 📋 Fill our Contact Form at /contact\n2. 💬 WhatsApp us at +44 7435 996857\n3. 📅 Book a session on Topmate\n\nWe offer a FREE initial ESG consultation — click the green "Book Free Consultation" button at the top!`,
   'what are your product prices': `Our digital ESG products range from £199–£499:\n\n• Climate Scenario Dashboard — £499\n• ESG Reporting Toolkit — £399\n• Climate Risk Toolkit — £349\n• GHG Calculator Tool — £299\n• Scope 3 Estimation Tool — £249\n• ESG Automation Templates — £199\n\nVisit /marketplace for full details and to purchase!`,
-  'tell me about jay shah': `Jay Shah is the founder of BTW AI Services and an ESG & Climate specialist with 9+ years of experience across:\n\n• Investment Management (PGIM, Darashaw)\n• International Consulting (PwC, NGOs)\n• Public Sector (Municipal Corporations, NIUA)\n\nHe specialises in Climate Risk, GHG Accounting, CSRD/TCFD compliance, and Net Zero Strategy.\n\nConnect with Jay on LinkedIn: linkedin.com/in/jay-shah-climate`,
+  'tell me about btw ai': `BTW AI Services is a premium ESG & Climate consulting firm offering:\n\n• Expert ESG advisory and reporting\n• Climate risk & scenario analysis\n• GHG accounting (Scope 1, 2, 3)\n• Digital ESG tools and dashboards\n• BTW Academy courses\n\nWe combine deep technical ESG knowledge with modern automation to deliver world-class sustainability solutions.\n\nVisit /about to learn more about our team!`,
   default: `Thanks for your message! For detailed enquiries, please:\n\n• Visit our Contact page at /contact\n• WhatsApp us: +44 7435 996857\n• Email: hello@btwai.com\n\nOur team typically responds within 24 hours. 🌱`,
 }
 

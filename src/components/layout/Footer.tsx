@@ -41,7 +41,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.linkedin.com/in/jay-shah-climate/"
+                href="https://www.linkedin.com/in/zeel-shah-ab338052/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-[#0077b5] hover:border-[#0077b5]/40 transition-all duration-200"
@@ -154,15 +154,6 @@ export function Footer() {
                 >
                   <ExternalLink className="w-3 h-3" />
                   Topmate — Book 1:1 Sessions
-                </a>
-                <a
-                  href="https://jay-shah-portfolio.pages.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-gray-400 hover:text-accent text-xs transition-colors"
-                >
-                  <ExternalLink className="w-3 h-3" />
-                  Jay Shah Portfolio
                 </a>
               </div>
             </div>

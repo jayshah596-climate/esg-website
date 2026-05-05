@@ -8,7 +8,7 @@ import { team } from '@/data/team'
 export const metadata: Metadata = {
   title: 'About Us — BTW AI Services',
   description:
-    'Meet the BTW AI team: Jay Shah (ESG & Climate Specialist, 9+ years) and Zeel Shah (Automation Engineer). Learn about our mission, expertise, and approach to sustainability consulting.',
+    'Meet the BTW AI team: expert ESG & climate consultants and automation engineers. Learn about our mission, expertise, and approach to sustainability consulting.',
 }
 
 const values = [
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 subtitle="Climate change and regulatory pressure are forcing every organisation to confront sustainability — but most lack the specialist knowledge to do it well."
               />
               <p className="text-gray-400 mt-4 text-sm leading-relaxed">
-                BTW AI bridges this gap. Founded by Jay Shah — an ESG specialist with nearly a decade of experience across investment management, consulting, NGOs, and the public sector — and Zeel Shah, an automation engineer who builds the digital tools to make sustainability measurable and manageable.
+                BTW AI bridges this gap. Founded by ESG specialists and automation engineers with nearly a decade of experience across investment management, consulting, NGOs, and the public sector — building the digital tools to make sustainability measurable and manageable.
               </p>
               <p className="text-gray-400 mt-3 text-sm leading-relaxed">
                 We combine deep technical ESG knowledge with modern automation technology to deliver advisory services and digital tools that are genuinely world-class — without the Big 4 price tag.
@@ -172,7 +172,7 @@ export default function AboutPage() {
           <p className="text-gray-500 text-sm mb-4">Follow our work</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://www.linkedin.com/in/jay-shah-climate/"
+              href="https://www.linkedin.com/in/zeel-shah-ab338052/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2.5 bg-[#0077b5]/10 border border-[#0077b5]/30 text-[#0077b5] rounded-lg hover:bg-[#0077b5]/20 transition-colors text-sm font-medium"
