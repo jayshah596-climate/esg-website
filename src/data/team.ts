@@ -11,6 +11,30 @@ export interface TeamMember {
 
 export const team: TeamMember[] = [
   {
+    id: 1,
+    name: 'Jay Shah',
+    role: 'ESG & Climate Consultant | Founder',
+    bio: 'Jay is a senior ESG and Climate consultant with 11+ years of experience across investment management, corporate advisory, NGOs, and the public sector. He specialises in climate risk assessment, GHG accounting, TCFD/ISSB disclosure, net zero strategy, and CSRD compliance. Jay founded BTW AI to make world-class ESG advisory accessible to organisations of all sizes, combining deep technical expertise with modern AI and automation tools.',
+    credentials: [
+      'MSc Environmental Management',
+      'GHG Protocol Certified',
+      'TCFD & ISSB Disclosure Expert',
+      'CSRD & Double Materiality Specialist',
+    ],
+    expertise: [
+      'Climate Risk & Scenario Analysis',
+      'GHG Accounting (Scope 1, 2, 3)',
+      'TCFD / ISSB Reporting',
+      'Net Zero Strategy',
+      'CSRD & Double Materiality',
+      'Sustainable Finance',
+      'ESG Reporting Frameworks',
+      'AI-Powered ESG Tools',
+    ],
+    linkedIn: 'https://www.linkedin.com/in/jay-shah-climate/',
+    image: undefined,
+  },
+  {
     id: 2,
     name: 'Zeel Shah',
     role: 'Automation Engineer | Co-Founder',

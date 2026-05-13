@@ -5,6 +5,15 @@ import { Badge } from '@/components/ui/Badge'
 
 const teamPreview = [
   {
+    name: 'Jay Shah',
+    role: 'ESG & Climate Consultant',
+    subRole: 'Founder',
+    bio: 'Senior ESG consultant with 11+ years of experience in climate risk, GHG accounting, TCFD/ISSB disclosure, net zero strategy, and CSRD compliance.',
+    tags: ['Climate Risk', 'GHG Accounting', 'TCFD', 'Net Zero'],
+    linkedin: 'https://www.linkedin.com/in/jay-shah-climate/',
+    initial: 'J',
+  },
+  {
     name: 'Zeel Shah',
     role: 'Automation Engineer',
     subRole: 'Co-Founder',

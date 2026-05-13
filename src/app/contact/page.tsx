@@ -184,7 +184,7 @@ export default function ContactPage() {
               {/* Social */}
               <div className="flex gap-3">
                 <a
-                  href="https://www.linkedin.com/in/zeel-shah-ab338052/"
+                  href="https://www.linkedin.com/in/jay-shah-climate/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-[#0077b5]/10 border border-[#0077b5]/30 text-[#0077b5] rounded-lg hover:bg-[#0077b5]/20 transition-colors text-xs font-medium"

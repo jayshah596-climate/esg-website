@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   keywords: [
     'ESG consulting', 'climate risk', 'net zero strategy', 'GHG accounting', 'CSRD compliance',
     'TCFD', 'sustainability consulting', 'carbon footprint', 'Scope 3 emissions',
-    'double materiality', 'ESG reporting', 'BTW AI', 'climate consulting UK',
+    'double materiality', 'ESG reporting', 'BTW AI', 'climate consulting UK', 'Jay Shah',
   ],
-  authors: [{ name: 'BTW AI Services', url: 'https://btw-ai.site' }],
+  authors: [{ name: 'Jay Shah', url: 'https://www.linkedin.com/in/jay-shah-climate/' }],
   creator: 'BTW AI Services',
   openGraph: {
     type: 'website',
