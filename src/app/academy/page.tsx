@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { CheckCircle, Lock, Star, Zap, BookOpen, TrendingUp, Bot, Radio, ChevronRight } from 'lucide-react'
+import { CheckCircle, Lock, Star, Zap, BookOpen, TrendingUp, Bot, Radio, ChevronRight, Layers } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 import { CurrencyPrice } from '@/components/ui/CurrencyPrice'
 import { CurrencyBadge } from '@/components/widgets/CurrencyBadge'
@@ -71,6 +71,26 @@ const COURSES = [
       'Real project-based learning',
     ],
   },
+  {
+    id: 4,
+    title: 'Claude Code for EU Taxonomy',
+    stripeUrl: 'https://buy.stripe.com/fZu9AT9DTaMR0IK7xxgYU0l',
+    price: '£50',
+    priceGBP: 50,
+    icon: Layers,
+    color: 'from-teal-500/20 to-cyan-600/10',
+    borderColor: 'border-teal-500/30 hover:border-teal-400/50',
+    iconBg: 'bg-teal-500/20 text-teal-400',
+    description:
+      'Learn how to automate and streamline EU Taxonomy assessments using Claude Code, AI-powered workflows, and practical implementation techniques.',
+    features: [
+      'EU Taxonomy eligibility screener via NACE code mapping',
+      'TSC & DNSH assessment engine with pass/fail logic',
+      'CSRD KPI tables auto-populated from data',
+      'Narrative generation & assurance evidence log',
+      'Deploy live EU Taxonomy toolkit to Streamlit Cloud',
+    ],
+  },
 ]
 
 export default function AcademyPage() {
@@ -110,7 +130,7 @@ export default function AcademyPage() {
       {/* Courses */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
             {COURSES.map((course) => {
               const Icon = course.icon
               return (
